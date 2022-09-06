@@ -2,10 +2,10 @@ import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5 import Qt
 
-##
-from janela_main.botao_close import BotaoSairMain
+## sistema app
+from janela_main.frontend import GuiFront
 
-class Principal(BotaoSairMain,QMainWindow):
+class Principal(GuiFront,QMainWindow):
     def __init__(self):
         super(Principal, self).__init__()
 
