@@ -3,9 +3,14 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5 import Qt
 
 ## sistema app
+##pasta bateria
+from bateria.libbateria import Bateria100
+##pasta janela main
 from janela_main.frontend import GuiFront
 
-class Principal(GuiFront,QMainWindow):
+class Principal( Bateria100,
+                GuiFront,
+                QMainWindow):
     def __init__(self):
         super(Principal, self).__init__()
 
