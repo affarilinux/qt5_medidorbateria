@@ -3,6 +3,9 @@ import psutil
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtCore        import QTimer
 
+## EXTERNO
+from configuracoesapp.numero import NUM5000
+
 class Bateria100(QMainWindow):
     def __init__( self ):
     
@@ -10,7 +13,7 @@ class Bateria100(QMainWindow):
 
         qtimer_bateria = QTimer        ( self )
 
-        qtimer_bateria.setInterval     ( 5000 )
+        qtimer_bateria.setInterval     ( NUM5000 )
         qtimer_bateria.start           ()
 
         #chamada de funçãO

@@ -2,9 +2,10 @@ from PyQt5.QtWidgets import QMainWindow, QPushButton, QLabel
 
 ## EXTERNO PASTA
 ##CONFIGURACOES APP
-from configuracoesapp.numero import (NUM2,NUM5,NUM15,NUM20,NUM25,NUM30,NUM40,NUM50,NUM70, NUM85,NUM90
-                                    ,NUM120,NUM125,NUM130,NUM175,NUM210,
-                                    NUM350)
+from configuracoesapp.numero import ( NUM2,NUM5,NUM10,NUM15,NUM20,NUM25,
+                                    NUM30,NUM40,NUM50,NUM60,NUM70,NUM85,
+                                    NUM100,NUM120,NUM125,NUM130,NUM170,
+                                    NUM175,NUM210,NUM380)
 
 class GuiFront(QMainWindow):
     def __init__( self ):
@@ -26,13 +27,13 @@ class GuiFront(QMainWindow):
         
 
         self.BOTAO_APP= QPushButton('aplicativo',self)
-        self.BOTAO_APP.move(10,NUM350)#janela
+        self.BOTAO_APP.move(NUM10,NUM380)#janela
         self.BOTAO_APP.resize(NUM120,NUM40)
         self.BOTAO_APP.setStyleSheet('QPushButton{background-color: #FFFF00; font: bold; font-size: 20px}')#Yellow
 
 
         self.BOTAO_SAIR = QPushButton('SAIR',self)
-        self.BOTAO_SAIR.move(140,NUM350)#janela
+        self.BOTAO_SAIR.move(140,NUM380)#janela
         self.BOTAO_SAIR.resize(NUM70,NUM40)
         self.BOTAO_SAIR.setStyleSheet('QPushButton{background-color: #FFFF00; font: italic; font-size: 20px}')# Yellow
         self.BOTAO_SAIR.clicked.connect(self.close)
@@ -45,7 +46,6 @@ class GuiFront(QMainWindow):
         LABEL_BATERIA_FIXO.resize(NUM175,NUM20)
         LABEL_BATERIA_FIXO.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 20px}')# Lime
 
-        casad = 100
         self.label_100_vav = QLabel(self)
         self.label_100_vav.move(NUM15,NUM85)
         self.label_100_vav.resize(NUM70,NUM25)
@@ -76,45 +76,69 @@ class GuiFront(QMainWindow):
         LABEL_TRACO_FIXO12.resize(NUM210,NUM2)
         LABEL_TRACO_FIXO12.setStyleSheet('QLabel{background-color: #00FF00;}') # Lime
 
+        LABEL_TRACO_FIXO13 = QLabel(self)
+        LABEL_TRACO_FIXO13.move(NUM5,295)
+        LABEL_TRACO_FIXO13.resize(NUM210,NUM2)
+        LABEL_TRACO_FIXO13.setStyleSheet('QLabel{background-color: #00FF00;}') # Lime
+
+        LABEL_TRACO_FIXO14 = QLabel(self)
+        LABEL_TRACO_FIXO14.move(NUM5,360)
+        LABEL_TRACO_FIXO14.resize(NUM210,NUM2)
+        LABEL_TRACO_FIXO14.setStyleSheet('QLabel{background-color: #00FF00;}') # Lime
+
         ## MEMORIA RAM
 
         LABEL_RAMNOME_FIXO = QLabel(self)
         LABEL_RAMNOME_FIXO.setText("RAM")
-        LABEL_RAMNOME_FIXO.move(NUM30,NUM125)
-        LABEL_RAMNOME_FIXO.resize(NUM175,NUM30)
-        LABEL_RAMNOME_FIXO.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 30px}')# Lime
+        LABEL_RAMNOME_FIXO.move(NUM10,NUM125)
+        LABEL_RAMNOME_FIXO.resize(NUM175,25)
+        LABEL_RAMNOME_FIXO.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 25px}')# Lime
 
-        LABEL_100_VAR_RAM = QLabel(self)
-        LABEL_100_VAR_RAM.setText("{} %".format(casad))
-        LABEL_100_VAR_RAM.move(NUM125,NUM125)
-        LABEL_100_VAR_RAM.resize(NUM90,NUM25)
-        LABEL_100_VAR_RAM.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 25px}')# Lime
+        self.label_100_vav_ram = QLabel(self)
+        self.label_100_vav_ram.move(90,126)
+        self.label_100_vav_ram.resize(NUM130,23)
+        self.label_100_vav_ram.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 23px}')# Lime
+
+        self.memoria_ram()
 
         ## temperatura média
 
         LABEL_TEMP_FIXO = QLabel(self)
         LABEL_TEMP_FIXO.setText("TEMPERATURA MÉDIA")
-        LABEL_TEMP_FIXO.move(NUM15,170)
+        LABEL_TEMP_FIXO.move(NUM15,NUM170)
         LABEL_TEMP_FIXO.resize(185,NUM15)
         LABEL_TEMP_FIXO.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 15px}')# Lime
 
-        LABEL_100_VAR_TEMP = QLabel(self)
-        LABEL_100_VAR_TEMP.setText("{} %".format(casad))
-        LABEL_100_VAR_TEMP.move(NUM70,195)
-        LABEL_100_VAR_TEMP.resize(NUM90,NUM25)
-        LABEL_100_VAR_TEMP.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 25px}')# Lime
+        self.label_tempnum = QLabel(self)
+        self.label_tempnum.move(NUM60,195)
+        self.label_tempnum.resize(NUM130,NUM25)
+        self.label_tempnum.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 25px}')# Lime
+        self.temperatura_lib()
 
         ## COOLER
 
         LABEL_COOLER_FIXO = QLabel(self)
         LABEL_COOLER_FIXO.setText("COOLER")
-        LABEL_COOLER_FIXO.move(60,240)
-        LABEL_COOLER_FIXO.resize(NUM120,NUM25)
-        LABEL_COOLER_FIXO.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 25px}')# Lime
+        LABEL_COOLER_FIXO.move(NUM70,240)
+        LABEL_COOLER_FIXO.resize(NUM130,NUM20)
+        LABEL_COOLER_FIXO.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 20px}')# Lime
 
-        NOMED = "PROBLEMA"
-        LABEL_COOLER_NOME = QLabel(self)
-        LABEL_COOLER_NOME.setText("{}".format(NOMED))
-        LABEL_COOLER_NOME.move(NUM50,275)
-        LABEL_COOLER_NOME.resize(NUM130,NUM20)
-        LABEL_COOLER_NOME.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 20px}')# Lime
+        self.label_cooler_nome = QLabel(self)
+        self.label_cooler_nome.move(NUM70,270)
+        self.label_cooler_nome.resize(NUM100,NUM15)
+        self.label_cooler_nome.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 15px}')# Lime
+        self.leitura_fans()
+
+        ##PROCESSADOR
+
+        LABEL_PROC_FIXO = QLabel(self)
+        LABEL_PROC_FIXO.setText("PROCESSADOR")
+        LABEL_PROC_FIXO.move(NUM30,305)
+        LABEL_PROC_FIXO.resize(NUM170,NUM20)
+        LABEL_PROC_FIXO.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 20px}')# Lime
+
+        self.label_100_vav_proc = QLabel(self)
+        self.label_100_vav_proc.move(NUM60,330)
+        self.label_100_vav_proc.resize(NUM130,NUM25)
+        self.label_100_vav_proc.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 25px}')# Lime
+        self.processador_frequencia()
