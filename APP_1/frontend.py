@@ -3,8 +3,8 @@ from PyQt5.QtWidgets import QMainWindow, QPushButton, QLabel
 ## EXTERNO PASTA
 ##CONFIGURACOES APP
 from configuracoesapp.numero import ( NUM2,NUM5,NUM10,NUM15,NUM20,NUM25,
-                                    NUM30,NUM40,NUM50,NUM60,NUM70,NUM85,
-                                    NUM100,NUM120,NUM125,NUM130,NUM170,
+                                    NUM30,NUM40,NUM50,NUM60,NUM70,NUM85
+                                    ,NUM120,NUM125,NUM130,NUM140,NUM160,NUM170,
                                     NUM175,NUM210,NUM380)
 
 class GuiFront(QMainWindow):
@@ -30,10 +30,10 @@ class GuiFront(QMainWindow):
         self.BOTAO_APP.move(NUM10,NUM380)#janela
         self.BOTAO_APP.resize(NUM120,NUM40)
         self.BOTAO_APP.setStyleSheet('QPushButton{background-color: #FFFF00; font: bold; font-size: 20px}')#Yellow
-
+        self.BOTAO_APP.clicked.connect(self.ativar_janela)
 
         self.BOTAO_SAIR = QPushButton('SAIR',self)
-        self.BOTAO_SAIR.move(140,NUM380)#janela
+        self.BOTAO_SAIR.move(NUM140,NUM380)#janela
         self.BOTAO_SAIR.resize(NUM70,NUM40)
         self.BOTAO_SAIR.setStyleSheet('QPushButton{background-color: #FFFF00; font: italic; font-size: 20px}')# Yellow
         self.BOTAO_SAIR.clicked.connect(self.close)
@@ -67,7 +67,7 @@ class GuiFront(QMainWindow):
         LABEL_TRACO_FIXO1.setStyleSheet('QLabel{background-color: #00FF00;}') # Lime
 
         LABEL_TRACO_FIXO11 = QLabel(self)
-        LABEL_TRACO_FIXO11.move(NUM5,160)
+        LABEL_TRACO_FIXO11.move(NUM5,NUM160)
         LABEL_TRACO_FIXO11.resize(NUM210,NUM2)
         LABEL_TRACO_FIXO11.setStyleSheet('QLabel{background-color: #00FF00;}') # Lime
 
@@ -124,8 +124,8 @@ class GuiFront(QMainWindow):
         LABEL_COOLER_FIXO.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 20px}')# Lime
 
         self.label_cooler_nome = QLabel(self)
-        self.label_cooler_nome.move(NUM70,270)
-        self.label_cooler_nome.resize(NUM100,NUM15)
+        self.label_cooler_nome.move(NUM40,270)
+        self.label_cooler_nome.resize(NUM160,NUM15)
         self.label_cooler_nome.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 15px}')# Lime
         self.leitura_fans()
 

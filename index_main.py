@@ -4,17 +4,19 @@ from PyQt5 import Qt
 
 ## sistema app
 ##pasta bateria
-from bateria.libbateria import Bateria100
+from APP_1.bateria.libbateria import Bateria100
 ##pasta janela main
-from janela_main.frontend import GuiFront
+from APP_1.frontend import GuiFront
 ##processador
-from processador.libprocessador import Processador100
+from APP_1.processador.libprocessador import Processador100
 ## pasta ram
-from RAM.libram import Ram100
+from APP_1.RAM.libram import Ram100
 ## temperatura hardware
-from temperatura_media.libtemperatura import Temperatura100
+from APP_1.temperatura_media.libtemperatura import Temperatura100
 ##cooler
-from cooler.libcooler import CoolerAtivo
+from APP_1.cooler.libcooler import CoolerAtivo
+
+from janela_aplicativo.janela_app import SecundariaApp
 
 class Principal( Bateria100,
                 GuiFront,
@@ -22,6 +24,7 @@ class Principal( Bateria100,
                 Ram100,
                 Temperatura100,
                 CoolerAtivo,
+                SecundariaApp,
                 QMainWindow):
     def __init__(self):
         super(Principal, self).__init__()
@@ -33,6 +36,7 @@ class Principal( Bateria100,
 
         self.setGeometry(1680, 100, 220, 430) #j-XY app-XY
         self.setStyleSheet("Principal{background-color: rgba(0,255,255, 30);}") #Aqua / Cyan
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
