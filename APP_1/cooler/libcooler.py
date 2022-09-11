@@ -20,14 +20,18 @@ class CoolerAtivo(QMainWindow):
     def leitura_fans(self):
         fans_leiint = psutil.sensors_fans()
         fans_sis = None
-        #print(fans_sis)
 
         if not fans_leiint:
             fans_sis = "SEM INFORMAÇÃO"
 
             self.label_cooler_nome.setText("{}".format(fans_sis))
 
-        else:
-            self.label_cooler_nome.setText("{}".format('INFORMAÇÃO'))
+        else: 
+            fans_sis = "INFORMAÇÃO"
+            self.label_cooler_nome.setText("{}".format(fans_sis))
 
-        #print(fans_sis)
+        self.ativar_banco()
+        self.as_cooler(fans_sis)
+        self.commit_banco()
+        self.sair_banco()
+        

@@ -9,13 +9,13 @@ from configuracoesapp.numero import ( NUM5,NUM10,NUM20,
                                     NUM200)
 
 
-class GUIFront2(QMainWindow):
+from bancobd.db1 import Bancosqlite1
+class GUIFront2(Bancosqlite1,QMainWindow):
     def __init__( self ):
     
         super ().__init__() # metodo construtor
 
         # frame janela
-        
 
         LABEL2_JANERLA = QLabel(self)
         LABEL2_JANERLA.move(NUM5,NUM10)
@@ -55,12 +55,15 @@ class GUIFront2(QMainWindow):
     def Whidget_cooler(self):
         
         self.LABEL_4x_COO = QLabel(self)
-        self.LABEL_4x_COO.setText("nao aceito")
         self.LABEL_4x_COO.move(NUM200,300)
         self.LABEL_4x_COO.resize(900,NUM100)
         self.LABEL_4x_COO.setStyleSheet('QLabel{background-color: #FF00FF;font: bold; font-size: 60px}')# 
         self.LABEL_4x_COO.setAlignment(QtCore.Qt.AlignCenter)
         self.LABEL_4x_COO.show()
+
+        self.tarefa_cooler()
+
+
         
 
     '''def asd(self):
