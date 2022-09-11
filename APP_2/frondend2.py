@@ -10,6 +10,7 @@ from configuracoesapp.numero import ( NUM5,NUM10,NUM20,
 
 
 from bancobd.db1 import Bancosqlite1
+
 class GUIFront2(Bancosqlite1,QMainWindow):
     def __init__( self ):
     
@@ -60,6 +61,9 @@ class GUIFront2(Bancosqlite1,QMainWindow):
         self.LABEL_4x_COO.setStyleSheet('QLabel{background-color: #FF00FF;font: bold; font-size: 60px}')# 
         self.LABEL_4x_COO.setAlignment(QtCore.Qt.AlignCenter)
         self.LABEL_4x_COO.show()
+
+        jan4 = "janela4"
+        self.if_var_var(jan4)
 
         self.tarefa_cooler()
 

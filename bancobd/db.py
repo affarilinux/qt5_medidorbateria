@@ -28,6 +28,10 @@ class Bancosqlite:
         self.cursorsq.execute(""" CREATE TABLE if not exists COOLER(
             id INTEGER PRIMARY KEY,
             estado_cooler text)""")
+
+        self.cursorsq.execute(""" CREATE TABLE if not exists PROCESSOS_SISTEMA(
+            id_processo INTEGER PRIMARY KEY,
+            processo_frame_janela text)""")
     ##
     def as_cooler(self,cool):
         
