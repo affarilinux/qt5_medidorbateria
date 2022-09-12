@@ -4,6 +4,8 @@ from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtCore        import QTimer
 
 from configuracoesapp.numerostrig import NUMS1
+from configuracoesapp.string_letra import JANELA4
+
 class Bancosqlite1(QMainWindow):
     def __init__( self ):
         
@@ -17,20 +19,15 @@ class Bancosqlite1(QMainWindow):
         #chamada de funçãO
         qtimer_fans.timeout.connect ( self.chamar_banco ) 
 
-        self.if_var = None
-
-    def if_var_var(self,processo_fram):
-        self.if_var = processo_fram
-        print(self.if_var)
-
     def chamar_banco(self):
-        self.tarefa_cooler()
+        if self.if_var == JANELA4:
+            self.tarefa_cooler()
 
     def tarefa_cooler(self):
-        if self.if_var == "janela4":
-            self.ativar_banco1()
-            self.mostrar_cooler()
-            self.sair_banco1()
+        
+        self.ativar_banco1()
+        self.mostrar_cooler()
+        self.sair_banco1()
     ##
     def ativar_banco1(self):
         self.bancoco = sqlite3.connect('bancobd/banco_hard.db')

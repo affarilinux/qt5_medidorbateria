@@ -14,10 +14,12 @@ from APP_1.RAM.libram import Ram100
 ## temperatura hardware
 from APP_1.temperatura_media.libtemperatura import Temperatura100
 ##cooler
-from APP_1.cooler.libcooler import CoolerAtivo
+from APP_1.cooler.libcooler import CoolerAtivo  
 
 from janela_aplicativo.janela_app import SecundariaApp
+## BANCO
 from bancobd.db import Bancosqlite
+
 class Principal( Bateria100,
                 GuiFront,
                 Processador100,

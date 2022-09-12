@@ -8,10 +8,9 @@ from configuracoesapp.numero import ( NUM5,NUM10,NUM20,
                                     ,NUM140,NUM180,
                                     NUM200)
 
+from configuracoesapp.string_letra import JANELA1,JANELA4,JANELA5
 
-from bancobd.db1 import Bancosqlite1
-
-class GUIFront2(Bancosqlite1,QMainWindow):
+class GUIFront2(QMainWindow):
     def __init__( self ):
     
         super ().__init__() # metodo construtor
@@ -27,7 +26,7 @@ class GUIFront2(Bancosqlite1,QMainWindow):
         self.botao2_janela.move(NUM10,NUM20)#janela
         self.botao2_janela.resize(NUM180,NUM40)
         self.botao2_janela.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 20px}')#RED
-        #self.botao2_janela.clicked.connect(self.ativar_janela)
+        self.botao2_janela.clicked.connect(self.whidget_bateria)
 
         self.botao2_janela2= QPushButton('RAM',self)
         self.botao2_janela2.move(NUM10,80)#janela
@@ -51,27 +50,54 @@ class GUIFront2(Bancosqlite1,QMainWindow):
         self.botao2_janela5.move(NUM10,260)#janela
         self.botao2_janela5.resize(NUM180,NUM40)
         self.botao2_janela5.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 20px}')#RED
-        #self.botao2_janela5.clicked.connect(self.asd)
-   
+        self.botao2_janela5.clicked.connect(self.widget_processador)
+
+
+        #self.whidget_bateria()
+
+    def whidget_bateria (self):
+
+        if self.if_var != JANELA1:
+
+            self.geral_destroi(self.if_var)
+
+            self.if_var_var(JANELA1)
+        ##widget
+
+        
+        ##tarefa
+
     def Whidget_cooler(self):
         
+        if self.if_var != JANELA4:
+
+            self.geral_destroi(self.if_var)
+
+            self.if_var_var(JANELA4)
+
         self.LABEL_4x_COO = QLabel(self)
         self.LABEL_4x_COO.move(NUM200,300)
         self.LABEL_4x_COO.resize(900,NUM100)
         self.LABEL_4x_COO.setStyleSheet('QLabel{background-color: #FF00FF;font: bold; font-size: 60px}')# 
         self.LABEL_4x_COO.setAlignment(QtCore.Qt.AlignCenter)
         self.LABEL_4x_COO.show()
-
-        jan4 = "janela4"
-        self.if_var_var(jan4)
-
+        
         self.tarefa_cooler()
+
+
+    def widget_processador(self):
+
+       if self.if_var != JANELA5:
+            
+            self.geral_destroi(self.if_var)
+
+            self.if_var_var(JANELA5)
 
 
         
 
-    '''def asd(self):
-        self.LABEL_4x_COO.deleteLater()'''
+    
+        
 
        
         

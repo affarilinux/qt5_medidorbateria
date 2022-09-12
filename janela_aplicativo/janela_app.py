@@ -10,11 +10,17 @@ class SecundariaApp(QMainWindow):
     def ativar_janela(self):
     
         self.js.show()
-
+        
 
 from APP_2.frondend2 import GUIFront2
+from APP_2.destui_wii.destoiwidget import (DestWidget)
+from bancobd.db1 import Bancosqlite1
+from APP_2.processo import Processo
 ##################################################
 class ChamarJanela(GUIFront2,
+                    DestWidget,
+                    Bancosqlite1,
+                    Processo,
                     QMainWindow):
     def __init__(self):
         super(ChamarJanela, self).__init__()        
