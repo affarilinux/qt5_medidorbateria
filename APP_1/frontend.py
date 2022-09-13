@@ -56,7 +56,7 @@ class GuiFront(QMainWindow):
         self.label_carga = QLabel(self)
         self.label_carga.move(NUM85,NUM85)
         self.label_carga.resize(NUM125,NUM25)
-        self.label_carga.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 13px}')# Lime
+        self.label_carga.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 15px}')# Lime
         #@
         self.timer_bateria_estado()
         ## traços

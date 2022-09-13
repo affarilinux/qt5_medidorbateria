@@ -49,10 +49,14 @@ class Bateria100(QMainWindow):
           informacao_carregamento = informacao_bateria.power_plugged      
 
           if informacao_carregamento   == True :
-                self.label_carga.setText("CARREGADO")
+                
+                aed = "00:00:00"
+                
+                self.label_carga.setText("CA: {}".format(aed))
                 
 
           elif informacao_carregamento == False :
+                afe = "00:00:00"
 
-                self.label_carga.setText("DESCARREGADO")
+                self.label_carga.setText( "DES: {}".format(afe))
                 

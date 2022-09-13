@@ -8,7 +8,8 @@ from configuracoesapp.numero import ( NUM5,NUM10,NUM20,
                                     ,NUM140,NUM180,
                                     NUM200)
 
-from configuracoesapp.string_letra import JANELA1,JANELA4,JANELA5
+from configuracoesapp.string_letra import (JANELA1,JANELA2,JANELA3,
+                                        JANELA4,JANELA5)
 
 class GUIFront2(QMainWindow):
     def __init__( self ):
@@ -32,13 +33,13 @@ class GUIFront2(QMainWindow):
         self.botao2_janela2.move(NUM10,80)#janela
         self.botao2_janela2.resize(NUM180,NUM40)
         self.botao2_janela2.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 20px}')#RED
-        #self.botao2_janela2.clicked.connect(self.ativar_janela)
+        self.botao2_janela2.clicked.connect(self.whidget_ram)
 
-        self.botao2_janela3= QPushButton('TEMPORATURA',self)
+        self.botao2_janela3= QPushButton('TEMPERATURA',self)
         self.botao2_janela3.move(NUM10,NUM140)#janela
         self.botao2_janela3.resize(NUM180,NUM40)
         self.botao2_janela3.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 20px}')#RED
-        #self.botao2_janela3.clicked.connect(self.ativar_janela)
+        self.botao2_janela3.clicked.connect(self.whidget_temperatura)
 
         self.botao2_janela4= QPushButton('COOLER',self)
         self.botao2_janela4.move(NUM10,NUM200)#janela
@@ -67,6 +68,22 @@ class GUIFront2(QMainWindow):
         
         ##tarefa
 
+    def whidget_ram(self):
+
+        if self.if_var != JANELA2:
+    
+            self.geral_destroi(self.if_var)
+
+            self.if_var_var(JANELA2)
+
+    def whidget_temperatura(self):
+    
+        if self.if_var != JANELA3:
+    
+            self.geral_destroi(self.if_var)
+
+            self.if_var_var(JANELA3)
+
     def Whidget_cooler(self):
         
         if self.if_var != JANELA4:
@@ -87,11 +104,13 @@ class GUIFront2(QMainWindow):
 
     def widget_processador(self):
 
-       if self.if_var != JANELA5:
+        if self.if_var != JANELA5:
             
             self.geral_destroi(self.if_var)
 
             self.if_var_var(JANELA5)
+
+        self.grafico_processador()
 
 
         

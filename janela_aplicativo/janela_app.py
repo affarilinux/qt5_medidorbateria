@@ -16,11 +16,13 @@ from APP_2.frondend2 import GUIFront2
 from APP_2.destui_wii.destoiwidget import (DestWidget)
 from bancobd.db1 import Bancosqlite1
 from APP_2.processo import Processo
+from APP_2.canvas.ativadorgrap import Canva
 ##################################################
 class ChamarJanela(GUIFront2,
                     DestWidget,
                     Bancosqlite1,
                     Processo,
+                    Canva,
                     QMainWindow):
     def __init__(self):
         super(ChamarJanela, self).__init__()        
