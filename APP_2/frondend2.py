@@ -8,9 +8,6 @@ from configuracoesapp.numero import ( NUM5,NUM10,NUM20,
                                     ,NUM140,NUM180,
                                     NUM200)
 
-from configuracoesapp.string_letra import (JANELA1,JANELA2,JANELA3,
-                                        JANELA4,JANELA5)
-
 class GUIFront2(QMainWindow):
     def __init__( self ):
     
@@ -53,44 +50,7 @@ class GUIFront2(QMainWindow):
         self.botao2_janela5.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 20px}')#RED
         self.botao2_janela5.clicked.connect(self.widget_processador)
 
-
-        #self.whidget_bateria()
-
-    def whidget_bateria (self):
-
-        if self.if_var != JANELA1:
-
-            self.geral_destroi(self.if_var)
-
-            self.if_var_var(JANELA1)
-        ##widget
-
-        
-        ##tarefa
-
-    def whidget_ram(self):
-
-        if self.if_var != JANELA2:
-    
-            self.geral_destroi(self.if_var)
-
-            self.if_var_var(JANELA2)
-
-    def whidget_temperatura(self):
-    
-        if self.if_var != JANELA3:
-    
-            self.geral_destroi(self.if_var)
-
-            self.if_var_var(JANELA3)
-
-    def Whidget_cooler(self):
-        
-        if self.if_var != JANELA4:
-
-            self.geral_destroi(self.if_var)
-
-            self.if_var_var(JANELA4)
+    def Whidget_cooler1(self):
 
         self.LABEL_4x_COO = QLabel(self)
         self.LABEL_4x_COO.move(NUM200,300)
@@ -98,19 +58,10 @@ class GUIFront2(QMainWindow):
         self.LABEL_4x_COO.setStyleSheet('QLabel{background-color: #FF00FF;font: bold; font-size: 60px}')# 
         self.LABEL_4x_COO.setAlignment(QtCore.Qt.AlignCenter)
         self.LABEL_4x_COO.show()
-        
-        self.tarefa_cooler()
 
 
-    def widget_processador(self):
 
-        if self.if_var != JANELA5:
-            
-            self.geral_destroi(self.if_var)
-
-            self.if_var_var(JANELA5)
-
-        self.grafico_processador()
+    
 
 
         
