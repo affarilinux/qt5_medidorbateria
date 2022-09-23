@@ -2,8 +2,9 @@ import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5 import Qt
 
-## sistema app
-##pasta bateria
+'''
+    APP1
+'''
 from APP_1.bateria.libbateria import Bateria100
 ##pasta janela main
 from APP_1.frontend import GuiFront
@@ -16,25 +17,41 @@ from APP_1.temperatura_media.libtemperatura import Temperatura100
 ##cooler
 from APP_1.cooler.libcooler import CoolerAtivo  
 
+'''
+    janela_aplicativo
+'''
 from janela_aplicativo.janela_app import SecundariaApp
-## BANCO
-from bancobd.db import Bancosqlite
+from janela_aplicativo.inter_janela.processop1 import ProcessoJanela1
 
-class Principal( Bateria100,
-                GuiFront,
-                Processador100,
-                Ram100,
-                Temperatura100,
-                CoolerAtivo,
-                SecundariaApp,
-                Bancosqlite,
-                QMainWindow):
+'''
+    banco de dados
+'''
+from bancobd.db import Bancosqlite
+from bancobd.jan_db.cooler_db import BancoCooler
+
+'''
+    configuracoes app
+'''
+from configuracoesapp.letra import false_lt,true_lt
+
+
+
+class Principal(
+    #app1
+    Bateria100,GuiFront,Processador100,Ram100,
+    Temperatura100,CoolerAtivo,
+    #janela aplicatico
+    SecundariaApp,ProcessoJanela1,
+    #banco de dados
+    Bancosqlite,BancoCooler,
+    #minha janela
+    QMainWindow):
+
     def __init__(self):
         super(Principal, self).__init__()
 
-
-        self.setAttribute(Qt.Qt.WA_TranslucentBackground, True )   
-        self.setAttribute(Qt.Qt.WA_NoSystemBackground, False)      
+        self.setAttribute(Qt.Qt.WA_TranslucentBackground, true_lt )   
+        self.setAttribute(Qt.Qt.WA_NoSystemBackground, false_lt)      
         self.setWindowFlags(Qt.Qt.FramelessWindowHint)
 
         self.setGeometry(1680, 100, 220, 430) #j-XY app-XY

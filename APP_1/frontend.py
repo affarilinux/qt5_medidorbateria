@@ -1,13 +1,16 @@
 from PyQt5.QtWidgets import QMainWindow, QPushButton, QLabel
 
-## EXTERNO PASTA
-##CONFIGURACOES APP
-from configuracoesapp.numero import ( NUM2,NUM5,NUM10,NUM15,NUM20,NUM25,
-                                    NUM30,NUM40,NUM50,NUM60,NUM70,NUM85
-                                    ,NUM120,NUM125,NUM130,NUM140,NUM160,NUM170,
-                                    NUM175,NUM210,NUM380)
+'''
+    CONFIGURACOES APP
+'''
+from configuracoesapp.numero import ( 
+    NUM2,NUM5,NUM10,NUM15,NUM20,NUM25,NUM30,NUM40,
+    NUM50,NUM60,NUM70,NUM85,NUM120,NUM125,NUM130,
+    NUM140,NUM160,NUM170,NUM175,NUM210,NUM380
+    )
 
 class GuiFront(QMainWindow):
+    
     def __init__( self ):
     
         super ().__init__() # metodo construtor
@@ -36,7 +39,7 @@ class GuiFront(QMainWindow):
         self.BOTAO_SAIR.move(NUM140,NUM380)#janela
         self.BOTAO_SAIR.resize(NUM70,NUM40)
         self.BOTAO_SAIR.setStyleSheet('QPushButton{background-color: #FFFF00; font: italic; font-size: 20px}')# Yellow
-        self.BOTAO_SAIR.clicked.connect(self.close)
+        self.BOTAO_SAIR.clicked.connect(self.sair_janela)
 
         ## BATERIA
 
@@ -142,3 +145,6 @@ class GuiFront(QMainWindow):
         self.label_100_vav_proc.resize(NUM130,NUM25)
         self.label_100_vav_proc.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 25px}')# Lime
         self.processador_frequencia()
+
+    
+       

@@ -3,8 +3,12 @@ import psutil
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtCore        import QTimer
 
-## EXTERNO
-from configuracoesapp.numero import NUM5
+'''
+    CONFIGURACOES APP
+'''
+from configuracoesapp.numero import( 
+    NUM0,NUM1,NUM2,NUM5
+    )
 
 class Temperatura100(QMainWindow):
     def __init__( self ):
@@ -21,13 +25,13 @@ class Temperatura100(QMainWindow):
 
     def temperatura_lib(self):
 
-        processador_temp = psutil.sensors_temperatures()['acpitz'][0]
+        processador_temp = psutil.sensors_temperatures()['acpitz'][NUM0]
 
-        core_temp        = psutil.sensors_temperatures()['coretemp'][0]
-        core_temp1       = psutil.sensors_temperatures()['coretemp'][1]
-        core_temp2       = psutil.sensors_temperatures()['coretemp'][2]
+        core_temp        = psutil.sensors_temperatures()['coretemp'][NUM0]
+        core_temp1       = psutil.sensors_temperatures()['coretemp'][NUM1]
+        core_temp2       = psutil.sensors_temperatures()['coretemp'][NUM2]
 
-        wifi_temp        = psutil.sensors_temperatures()['iwlwifi_1'][0]
+        wifi_temp        = psutil.sensors_temperatures()['iwlwifi_1'][NUM0]
 
         processador_temp_cur = processador_temp.current
 

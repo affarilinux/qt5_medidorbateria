@@ -1,6 +1,11 @@
 import sqlite3
 
+'''
+    configuracoesapp
+'''
 from configuracoesapp.numerostrig import NUMS1
+from configuracoesapp.string_letra import true_s,false_s
+from configuracoesapp.letra import  nome_lt
 
 class Bancosqlite:
 
@@ -9,6 +14,8 @@ class Bancosqlite:
 
         self.ativar_banco()
         self.criar_tabela()
+        self.organizacao_tabelas_inicializacao()
+        self.commit_banco()
         self.sair_banco()
         
     ##
@@ -31,20 +38,41 @@ class Bancosqlite:
 
         self.cursorsq.execute(""" CREATE TABLE if not exists PROCESSOS_SISTEMA(
             id_processo INTEGER PRIMARY KEY,
-            processo_frame_janela text)""")
+            fechar_janela text)""")
     ##
-    def as_cooler(self,cool):
+    
+    def organizacao_tabelas_inicializacao(self):
+
+        self.cursorsq.execute("SELECT * from PROCESSOS_SISTEMA WHERE id_processo = ?",(NUMS1,))
+        record_1 = self.cursorsq.fetchone()
         
-        self.cursorsq.execute("SELECT * from COOLER WHERE id = ?",(NUMS1,))
-        record = self.cursorsq.fetchone()
-        if record == None:
+        if record_1 == nome_lt:
             
-            self.cursorsq.execute("INSERT INTO COOLER(id,estado_cooler) VALUES (?,?)",(NUMS1,cool))
+            self.cursorsq.execute("INSERT INTO PROCESSOS_SISTEMA(id_processo,fechar_janela) VALUES (?,?)",(NUMS1,false_s))
             ##"INSERT INTO COOLER VALUES ('"++",'"++"')""
 
-        elif record != None:
+        elif record_1 != nome_lt:
             
-            self.cursorsq.execute("UPDATE COOLER SET estado_cooler = ?",(cool,))
+            self.cursorsq.execute("UPDATE PROCESSOS_SISTEMA SET fechar_janela = ?",(false_s,))
+
+    def atualizar_processo_sistema(self):
+
+        self.ativar_banco()
+
+        self.cursorsq.execute("SELECT fechar_janela FROM PROCESSOS_SISTEMA")
+        record_2 = self.cursorsq.fetchone()
+
+        for row_at  in record_2:
+
+            if row_at == false_s:
+                self.cursorsq.execute("UPDATE PROCESSOS_SISTEMA SET fechar_janela = ?",(true_s,))
+
+        self.commit_banco()
+        self.sair_banco()
+
+
+
+
             
         
 

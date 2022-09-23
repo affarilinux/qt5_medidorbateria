@@ -3,10 +3,14 @@ import psutil
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtCore        import QTimer
 
-## EXTERNO
+'''
+    CONFIGURACOES APP
+'''
 from configuracoesapp.numero import NUM5000
+from configuracoesapp.letra import false_lt
 
 class Bateria100(QMainWindow):
+    
     def __init__( self ):
     
         super ().__init__() # metodo construtor
@@ -55,7 +59,7 @@ class Bateria100(QMainWindow):
                 self.label_carga.setText("CA: {}".format(aed))
                 
 
-          elif informacao_carregamento == False :
+          elif informacao_carregamento == false_lt :
                 afe = "00:00:00"
 
                 self.label_carga.setText( "DES: {}".format(afe))

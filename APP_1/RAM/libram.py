@@ -3,8 +3,12 @@ import psutil
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtCore        import QTimer
 
-## EXTERNO
-from configuracoesapp.numero import NUM2,NUM100, NUM5000
+'''
+    CONFIGURACOES APP
+'''
+from configuracoesapp.numero import (
+    NUM2,NUM100, NUM5000
+    )
 
 class Ram100(QMainWindow):
     def __init__( self ):
