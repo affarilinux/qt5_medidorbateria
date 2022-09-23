@@ -20,6 +20,7 @@ from APP_2.processo import Processo
 from APP_2.canvas.ativadorgrap import Canva
 from APP_2.funcao_front2 import Processo_front
 from APP_2.canvas.grafico.tes import JanelaGrafico
+from APP_2.button_state import EstadoBotoes
 
 '''
     banco de dados
@@ -33,7 +34,7 @@ from bancobd.db1 import Bancosqlite1
 class ChamarJanela(
     #APP2
     GUIFront2,DestWidget, Processo,Canva,
-    Processo_front,JanelaGrafico,
+    Processo_front,JanelaGrafico, EstadoBotoes,
     #banco de dados
     Bancosqlite1, BancoCooler_p1,BancoCloseApp,
     #meu grafico

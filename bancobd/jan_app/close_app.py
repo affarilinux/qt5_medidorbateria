@@ -3,7 +3,9 @@ from PyQt5.QtWidgets import QMainWindow
 '''
     configuracoes app
 '''
-from configuracoesapp.string_letra import true_s,JANELA5
+from configuracoesapp.string_letra import (
+    true_s,JANELA4,JANELA5
+    )
 
 class BancoCloseApp(QMainWindow):
 
@@ -26,9 +28,15 @@ class BancoCloseApp(QMainWindow):
 
     def apagar_widget_banco(self):
 
-        if self.if_var == JANELA5:
-            self.close()
+        if self.if_var == JANELA4:
+
+            self.fechar_janela_secundaria()
+        
+        elif self.if_var == JANELA5:
+            self.fechar_janela_secundaria()
             self.chart_delete()
 
+    def fechar_janela_secundaria(self):
 
+        self.close()
         

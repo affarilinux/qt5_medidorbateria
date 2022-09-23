@@ -40,12 +40,16 @@ class Processo_front:
         if self.if_var != JANELA4:
             
             self.geral_destroi(self.if_var)
+            self.estado_frame_true(self.if_var)
+
             self.if_var = JANELA4
             
 
         self.Whidget_cooler1()
         
         self.tarefa_cooler()
+
+        self.estado_frame_false(self.if_var)
 
     ## ------------------------------------------
     #  processador
@@ -54,11 +58,15 @@ class Processo_front:
         if self.if_var != JANELA5:
             
             self.geral_destroi(self.if_var)
+            self.estado_frame_true(self.if_var)
+
             self.if_var = JANELA5
             
         #widget
         
         self.widget_processador1()
+
+        self.estado_frame_false(self.if_var)
         
     
     def widget_processador121(self):
