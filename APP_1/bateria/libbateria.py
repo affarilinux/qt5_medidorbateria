@@ -1,28 +1,15 @@
 import psutil
 
 from PyQt5.QtWidgets import QMainWindow
-from PyQt5.QtCore        import QTimer
 
 '''
     CONFIGURACOES APP
 '''
-from configuracoesapp.numero import NUM5000
 from configuracoesapp.letra import false_lt
 
 class Bateria100(QMainWindow):
     
-    def __init__( self ):
-    
-        super ().__init__() # metodo construtor
-
-        qtimer_bateria = QTimer        ( self )
-
-        qtimer_bateria.setInterval     ( NUM5000 )
-        qtimer_bateria.start           ()
-
-        #chamada de funçãO
-        qtimer_bateria.timeout.connect ( self.chamada_qtimerbateria ) 
-    
+       
     def chamada_qtimerbateria(self):
         self.timer_bateria_100()
         self.timer_bateria_estado()

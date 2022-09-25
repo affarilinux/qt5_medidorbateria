@@ -28,6 +28,8 @@ from janela_aplicativo.inter_janela.processop1 import ProcessoJanela1
 '''
 from bancobd.db import Bancosqlite
 from bancobd.jan_db.cooler_db import BancoCooler
+from bancobd.jan_db.banco_salvar import SalvarProcessador
+from bancobd.jan_db.data_bd_p import DataAtual
 
 '''
     configuracoes app
@@ -43,7 +45,8 @@ class Principal(
     #janela aplicatico
     SecundariaApp,ProcessoJanela1,
     #banco de dados
-    Bancosqlite,BancoCooler,
+    Bancosqlite,BancoCooler,SalvarProcessador,
+    DataAtual,
     #minha janela
     QMainWindow):
 

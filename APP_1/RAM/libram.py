@@ -1,28 +1,16 @@
 import psutil
 
 from PyQt5.QtWidgets import QMainWindow
-from PyQt5.QtCore        import QTimer
 
 '''
     CONFIGURACOES APP
 '''
 from configuracoesapp.numero import (
-    NUM2,NUM100, NUM5000
+    NUM2,NUM100
     )
 
 class Ram100(QMainWindow):
-    def __init__( self ):
-    
-        super ().__init__() # metodo construtor
-
-        qtimer_ram = QTimer        ( self )
-
-        qtimer_ram.setInterval     ( NUM5000 )
-        qtimer_ram.start           ()
-
-        #chamada de funçãO
-        qtimer_ram.timeout.connect ( self.memoria_ram ) 
-
+   
     def  memoria_ram( self ):
     
         #informações da memoria ram

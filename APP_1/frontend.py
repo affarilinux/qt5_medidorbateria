@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import QMainWindow, QPushButton, QLabel
+from PyQt5.QtCore        import QTimer
 
 '''
     CONFIGURACOES APP
@@ -6,14 +7,22 @@ from PyQt5.QtWidgets import QMainWindow, QPushButton, QLabel
 from configuracoesapp.numero import ( 
     NUM2,NUM5,NUM10,NUM15,NUM20,NUM25,NUM30,NUM40,
     NUM50,NUM60,NUM70,NUM85,NUM120,NUM125,NUM130,
-    NUM140,NUM160,NUM170,NUM175,NUM210,NUM380
+    NUM140,NUM160,NUM170,NUM175,NUM210,NUM380,NUM5000
     )
 
 class GuiFront(QMainWindow):
     
     def __init__( self ):
     
-        super ().__init__() # metodo construtor
+        super ().__init__() # metodo 
+        
+        qtimer_front = QTimer        ( self )
+
+        qtimer_front.setInterval     ( NUM5000 )
+        qtimer_front.start           ()
+
+        #chamada de funçãO
+        qtimer_front.timeout.connect ( self.chamar_front ) 
 
         ## sistema fixo
 
@@ -145,6 +154,16 @@ class GuiFront(QMainWindow):
         self.label_100_vav_proc.resize(NUM130,NUM25)
         self.label_100_vav_proc.setStyleSheet('QLabel{color: #00FF00;font:bold;font-size: 25px}')# Lime
         self.processador_frequencia()
+
+    def chamar_front(self):
+
+        self.chamada_qtimerbateria()
+        self.processador_frequencia ()
+        self.memoria_ram()
+        self.temperatura_lib()
+
+         ##banco
+        self.processos_processador_salvar()
 
     
        

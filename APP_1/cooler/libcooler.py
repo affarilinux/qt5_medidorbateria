@@ -3,6 +3,12 @@ import psutil
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtCore        import QTimer
 
+'''
+    CONFIGURACOES APP
+'''
+
+from configuracoesapp.letra import none_lt
+
 class CoolerAtivo(QMainWindow):
     
     def __init__( self ):

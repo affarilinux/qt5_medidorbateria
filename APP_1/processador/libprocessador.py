@@ -1,28 +1,16 @@
 import psutil
 
 from PyQt5.QtWidgets import QMainWindow
-from PyQt5.QtCore        import QTimer
 
 '''
     CONFIGURACOES APP
 '''
 from configuracoesapp.numero import (
-    NUM2,NUM100, NUM5000
+    NUM2,NUM100
     )
 
 class Processador100(QMainWindow):
-    def __init__( self ):
     
-        super ().__init__() # metodo construtor
-
-        qtimer_ram = QTimer        ( self )
-
-        qtimer_ram.setInterval     ( NUM5000 )
-        qtimer_ram.start           ()
-
-        #chamada de funçãO
-        qtimer_ram.timeout.connect ( self.processador_frequencia ) 
-
     def processador_frequencia ( self ):
     
         # chama os dados para a janela
@@ -36,7 +24,9 @@ class Processador100(QMainWindow):
         calculo_processos_dados     = ( dados_presente * NUM100 ) / maximo_processador
 
         # filtra o float
-        filtra_calculo_sistema = round ( calculo_processos_dados, NUM2 )
+        self.filtra_calculo_sistema = round ( calculo_processos_dados, NUM2 )
 
-        self.label_100_vav_proc.setText("{} %".format(filtra_calculo_sistema))
+        self.label_100_vav_proc.setText("{} %".format(self.filtra_calculo_sistema))
+
+       
         

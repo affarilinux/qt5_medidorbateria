@@ -1,7 +1,7 @@
 import psutil
 
 from PyQt5.QtWidgets import QMainWindow
-from PyQt5.QtCore        import QTimer
+
 
 '''
     CONFIGURACOES APP
@@ -11,18 +11,7 @@ from configuracoesapp.numero import(
     )
 
 class Temperatura100(QMainWindow):
-    def __init__( self ):
     
-        super ().__init__() # metodo construtor
-
-        qtimer_temperatura = QTimer        ( self )
-
-        qtimer_temperatura.setInterval     ( 3000 )
-        qtimer_temperatura.start           ()
-
-        #chamada de funçãO
-        qtimer_temperatura.timeout.connect ( self.temperatura_lib ) 
-
     def temperatura_lib(self):
 
         processador_temp = psutil.sensors_temperatures()['acpitz'][NUM0]
@@ -31,6 +20,7 @@ class Temperatura100(QMainWindow):
         core_temp1       = psutil.sensors_temperatures()['coretemp'][NUM1]
         core_temp2       = psutil.sensors_temperatures()['coretemp'][NUM2]
 
+        #### ERRO KEYERROR iwlwifi_1'
         wifi_temp        = psutil.sensors_temperatures()['iwlwifi_1'][NUM0]
 
         processador_temp_cur = processador_temp.current
