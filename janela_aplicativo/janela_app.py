@@ -27,7 +27,9 @@ from APP_2.button_state import EstadoBotoes
 '''
 from bancobd.jan_app.cooler_db1 import BancoCooler_p1
 from bancobd.jan_app.close_app import BancoCloseApp
+from bancobd.jan_app.graficodb import MostrarGrafico
 from bancobd.db1 import Bancosqlite1
+
 
 
 ##################################################
@@ -37,6 +39,7 @@ class ChamarJanela(
     Processo_front,JanelaGrafico, EstadoBotoes,
     #banco de dados
     Bancosqlite1, BancoCooler_p1,BancoCloseApp,
+    MostrarGrafico,
     #meu grafico
     QMainWindow):
 
