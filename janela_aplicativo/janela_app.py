@@ -28,9 +28,8 @@ from bancobd.jan_app.cooler_db1 import BancoCooler_p1
 from bancobd.jan_app.close_app import BancoCloseApp
 from bancobd.jan_app.graficodb import MostrarGrafico
 from bancobd.jan_app.salvar_nivel import NivelJanela3
+
 from bancobd.db1 import Bancosqlite1
-
-
 
 ##################################################
 class ChamarJanela(

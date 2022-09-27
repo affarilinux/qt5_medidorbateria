@@ -98,6 +98,9 @@ class Bancosqlite:
     
     def organizacao_tabelas_inicializacao(self):
 
+        ##----------------------------------------
+        ## processo sistema
+
         self.cursorsq.execute("SELECT * from PROCESSOS_SISTEMA WHERE id_processo = ?",(NUMS1,))
         record_1 = self.cursorsq.fetchone()
         
@@ -109,7 +112,17 @@ class Bancosqlite:
         elif record_1 != none_lt:
             
             self.cursorsq.execute("UPDATE PROCESSOS_SISTEMA SET fechar_janela = ?",(false_s,))
-
+        
+        ##----------------------------------------
+        ## janela3
+        self.cursorsq.execute("SELECT * from JANELA3 WHERE ID_JANELA = ?",(NUMS1,))
+        record_niv = self.cursorsq.fetchone()
+        
+        if record_niv == none_lt:
+            
+            self.cursorsq.execute("INSERT INTO JANELA3(ID_JANELA,NIVEL_JANELA ) VALUES (?,?)",(NUMS1,100))
+    ##--------------------------------------------
+    # close da janela
     def atualizar_processo_sistema(self):
 
         self.ativar_banco()

@@ -28,5 +28,7 @@ class Processador100(QMainWindow):
 
         self.label_100_vav_proc.setText("{} %".format(self.filtra_calculo_sistema))
 
+        self.ativar_janela_processador(self.filtra_calculo_sistema)
+
        
         

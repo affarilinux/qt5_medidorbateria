@@ -23,9 +23,7 @@ class Processo:
     def widget_processador12(self,state):
     
         self.val = state == QtCore.Qt.Checked
-       
-        print(str(self.val))
-        
+              
         self.widget_processador121()
 
 

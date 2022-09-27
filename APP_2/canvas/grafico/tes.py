@@ -15,8 +15,9 @@ class JanelaGrafico (QMainWindow):
         self.chart.setWindowTitle("HARDWARE")
         self.chart.move(600,600)
         self.chart.resize(800,400)
-        #self.chart.setWindowFlags(Qt.Qt.FramelessWindowHint)    
+           
         self.ucv()
+        
         self.chart.show()
 
                            

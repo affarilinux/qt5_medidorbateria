@@ -95,11 +95,12 @@ class GUIFront2(QMainWindow):
         self.spin.move(220,210)
         self.spin.resize(100,30)
         self.spin.setStyleSheet('QSpinBox{background-color: #EE82EE;font: bold; font-size: 20px}')# Violet
-        self.spin.setValue(20)
         self.spin.setMaximum(100)
         self.spin.setMinimum(1)
         self.spin.valueChanged.connect(self.widget_processador121)
         self.spin.show()
+
+        self.spin_jan2_frameproc()
 
         self.LABEL_INFO = QLabel(self)
         self.LABEL_INFO.move(220,290)
