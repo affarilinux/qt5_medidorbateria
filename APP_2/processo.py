@@ -1,5 +1,5 @@
 from PyQt5 import QtCore
-from PyQt5.QtCore        import QTimer
+
 
 '''
     configuracoes app
@@ -28,13 +28,5 @@ class Processo:
         
         self.widget_processador121()
 
-    def loop_frame_salvo(self):
-            self.qtimer_bateria1 = QTimer        ( self )
-
-            self.qtimer_bateria1.setInterval     ( NUM5000 )
-            self.qtimer_bateria1.start      ()
-
-        #chamada de funçãO
-            self.qtimer_bateria1.timeout.connect ( self.destif_janela5 )
 
    

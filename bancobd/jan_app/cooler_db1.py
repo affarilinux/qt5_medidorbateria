@@ -24,4 +24,5 @@ class BancoCooler_p1:
         
        for row  in selec:
             
+            ## label apresentar se tem cooler
             self.LABEL_4x_COO.setText(row)

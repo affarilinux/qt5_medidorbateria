@@ -25,6 +25,7 @@ class SalvarProcessador:
 
     def ler_banco_data(self,dat,hor,seg):
 
+        
         self.cursorsq.execute("SELECT ID_DATA from DATA_SISTEMA WHERE data_dia = ?",(dat,))
         record_sel0 = self.cursorsq.fetchone()
 
@@ -37,13 +38,14 @@ class SalvarProcessador:
         for row_sel1  in record_sel1:
             r_s_1 = row_sel1
 
+       
         self.cursorsq.execute("SELECT ID_SEGUNDOS from SEGUNDOS WHERE segundos = ?",(seg,))
         record_sel2 = self.cursorsq.fetchone()
 
         for row_sel2  in record_sel2:
             r_s_2 = row_sel2
 
-        self.banco_processador_insert(row_sel0,row_sel1,row_sel2)
+        self.banco_processador_insert(r_s_0,r_s_1,r_s_2)
 
 
     def banco_processador_insert(self,chave0,chave1,chave2):

@@ -1,9 +1,13 @@
 from PyQt5.QtWidgets import  QMainWindow
 
+'''
+    CONFIGURACOES APP
+'''
 from configuracoesapp.string_letra import (
     JANELA1, JANELA2,JANELA3,JANELA4,JANELA5,
     INI_LABEL,DESA_LABEL
     )
+from configuracoesapp.numero import NUM1
 
 class DestWidget(QMainWindow):
 
@@ -53,10 +57,12 @@ class DestWidget(QMainWindow):
 
     def chart_delete(self):
         
-        self.chart.close()      
+        if self.grafico ==NUM1:
+            self.chart.close()      
 
     def destif_janela5(self):
         self.LABEL_PRINT.deleteLater()
+
         self.qtimer_bateria1.stop()
 
         self.salvar_label = INI_LABEL

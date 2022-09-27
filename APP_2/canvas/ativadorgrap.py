@@ -39,7 +39,7 @@ class Canva (QMainWindow ):
 
         self.loop_qtimer = self.loop_qtimer +NUM1
         if self.loop_qtimer == NUM1:
-            QtCore.QTimer.singleShot(15000, self.Qtimer_canva_loop)
+            QtCore.QTimer.singleShot(20000, self.Qtimer_canva_loop)
 
 
     def chart_graf(self):

@@ -1,3 +1,5 @@
+from PyQt5.QtCore        import QTimer
+
 '''
     CONFIGURACOES APP
 '''
@@ -6,7 +8,7 @@ from configuracoesapp.string_letra import (
     INI_LABEL,DESA_LABEL
     )
 from configuracoesapp.letra import true_lt
-from configuracoesapp.numero import NUM0, NUM1
+from configuracoesapp.numero import NUM0, NUM1,NUM5000
 
 class Processo_front:
 
@@ -72,12 +74,21 @@ class Processo_front:
     def widget_processador121(self):
     
         if self.val == true_lt:
+
             value = self.spin.value()
+
+            self.quantidade_banco_jan3(value)
 
             if self.salvar_label == INI_LABEL:
                 self.print_salvo_processador()
 
-                self.loop_frame_salvo()
+                self.qtimer_bateria1 = QTimer        ( self )
+
+                self.qtimer_bateria1.setInterval     ( NUM5000 )
+                self.qtimer_bateria1.start           ()
+
+                #chamada de funçãO
+                self.qtimer_bateria1.timeout.connect ( self.destif_janela5 ) 
 
                 self.salvar_label = DESA_LABEL
 

@@ -51,6 +51,15 @@ class Bancosqlite:
             )""")
 
         '''
+            grafico 3
+        '''
+        self.cursorsq.execute(
+            """ CREATE TABLE if not exists JANELA3(
+            ID_JANELA INTEGER PRIMARY KEY,
+            NIVEL_JANELA INT
+            )""")
+
+        '''
             DATA,HORA
         '''
         self.cursorsq.execute(

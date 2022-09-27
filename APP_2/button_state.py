@@ -15,6 +15,7 @@ class EstadoBotoes (QMainWindow):
 
         elif state_t == JANELA5:
             self.botao2_janela5.setEnabled(true_lt)
+            
 
     def estado_frame_false(self,state_f):
 
