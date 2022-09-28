@@ -8,6 +8,7 @@ class ProcessoJanela1(QMainWindow):
         self.atualizar_processo_sistema()
        
         self.close()
+        self.jt.close()
 
             
         

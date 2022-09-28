@@ -5,10 +5,18 @@ class SecundariaApp(QMainWindow):
         super().__init__()
 
         self.js = ChamarJanela()
+        self.jt = JanelaTemporaria()
+        
     
     def ativar_janela(self):
     
         self.js.show()
+
+    def ativar_janela_temporaria(self):
+
+        self.jt.show()
+
+##-----------------------------------------------
                 
 '''
     APP2
@@ -48,6 +56,34 @@ class ChamarJanela(
         self.setGeometry(600, 150, 800, 400) #j-XY app-XY
         self.setStyleSheet("background-color: #B0E0E6")#
         self.setWindowTitle("HARDWARE")
+
+
+##------------------------------------------------
+'''
+    APP
+'''
+from APP3.frontend3 import FrontEnd3
+
+'''
+    BANCO
+'''
+from bancobd.db2 import BancoSqlite3
+
+class JanelaTemporaria(
+    #app
+    FrontEnd3,
+    #banco
+    BancoSqlite3,
+    QMainWindow):
+
+     def __init__(self):
+        super(JanelaTemporaria, self).__init__()        
+
+        self.setGeometry(800,300,250,250) #j-XY app-XY
+        self.setStyleSheet("background-color: #FF4500")#OrangeRed
+        self.setWindowTitle("AVISO")
+
+
         
 
 
