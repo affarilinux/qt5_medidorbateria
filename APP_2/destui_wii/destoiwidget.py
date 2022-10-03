@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import  QMainWindow
     CONFIGURACOES APP
 '''
 from configuracoesapp.string_letra import (
-    JANELA1, JANELA2,JANELA3,JANELA4,JANELA5,
+    JANELA1, JANELA2,JANELA3,JANELA4,JANELA5,JANELA6,
     INI_LABEL,DESA_LABEL
     )
 from configuracoesapp.numero import NUM1
@@ -27,6 +27,9 @@ class DestWidget(QMainWindow):
 
         elif des == JANELA5:
             self.dest_janela_5()
+
+        elif des == JANELA6:
+            self.dest_janela_6()
 
     def dest_janela_1(self):
         print(1111)
@@ -54,6 +57,11 @@ class DestWidget(QMainWindow):
 
         if self.salvar_label == DESA_LABEL:
             self.destif_janela5()
+
+    def dest_janela_6(self):
+        
+        self.botao_resert.deleteLater()
+        self.LABEL_INF_RESERT.deleteLater()
 
     def chart_delete(self):
         

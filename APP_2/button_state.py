@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import QMainWindow
 '''
     CONFIGURACOES APP
 '''
-from configuracoesapp.string_letra import JANELA4,JANELA5
+from configuracoesapp.string_letra import JANELA4,JANELA5,JANELA6
 from configuracoesapp.letra        import false_lt,true_lt
 
 class EstadoBotoes (QMainWindow):
@@ -15,6 +15,9 @@ class EstadoBotoes (QMainWindow):
 
         elif state_t == JANELA5:
             self.botao2_janela5.setEnabled(true_lt)
+
+        elif state_t == JANELA6:
+            self.botao2_conf.setEnabled(true_lt)
             
 
     def estado_frame_false(self,state_f):
@@ -24,4 +27,7 @@ class EstadoBotoes (QMainWindow):
 
         elif state_f == JANELA5:
             self.botao2_janela5.setEnabled(false_lt)
+        
+        elif state_f == JANELA6:
+            self.botao2_conf.setEnabled(false_lt)
 

@@ -24,32 +24,38 @@ class GUIFront2(QMainWindow):
         self.botao2_janela= QPushButton('BATERIA',self)
         self.botao2_janela.move(NUM10,NUM20)#janela
         self.botao2_janela.resize(NUM180,NUM40)
-        self.botao2_janela.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 20px}')#RED
+        self.botao2_janela.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 18px}')#RED
         self.botao2_janela.clicked.connect(self.whidget_bateria)
 
         self.botao2_janela2= QPushButton('RAM',self)
         self.botao2_janela2.move(NUM10,80)#janela
         self.botao2_janela2.resize(NUM180,NUM40)
-        self.botao2_janela2.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 20px}')#RED
+        self.botao2_janela2.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 18px}')#RED
         self.botao2_janela2.clicked.connect(self.whidget_ram)
 
         self.botao2_janela3= QPushButton('TEMPERATURA',self)
         self.botao2_janela3.move(NUM10,NUM140)#janela
         self.botao2_janela3.resize(NUM180,NUM40)
-        self.botao2_janela3.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 20px}')#RED
+        self.botao2_janela3.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 18px}')#RED
         self.botao2_janela3.clicked.connect(self.whidget_temperatura)
 
         self.botao2_janela4= QPushButton('COOLER',self)
         self.botao2_janela4.move(NUM10,NUM200)#janela
         self.botao2_janela4.resize(NUM180,NUM40)
-        self.botao2_janela4.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 20px}')#RED
+        self.botao2_janela4.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 18px}')#RED
         self.botao2_janela4.clicked.connect(self.Whidget_cooler)
 
         self.botao2_janela5= QPushButton('PROCESSADOR',self)
         self.botao2_janela5.move(NUM10,260)#janela
         self.botao2_janela5.resize(NUM180,NUM40)
-        self.botao2_janela5.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 20px}')#RED
+        self.botao2_janela5.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 18px}')#RED
         self.botao2_janela5.clicked.connect(self.widget_processador)
+
+        self.botao2_conf= QPushButton('CONFIGURAÇÕES',self)
+        self.botao2_conf.move(NUM10,320)#janela
+        self.botao2_conf.resize(NUM180,NUM40)
+        self.botao2_conf.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 18px}')#RED
+        self.botao2_conf.clicked.connect(self.whidget_configuracoes)
 
     def Whidget_cooler1(self):
 
@@ -126,6 +132,22 @@ class GUIFront2(QMainWindow):
         self.LABEL_PRINT.setAlignment(QtCore.Qt.AlignCenter)
         self.LABEL_PRINT.show()
 
+    def whidget_configuracoes_6(self):
+
+        
+        self.botao_resert= QPushButton('RESERT',self)
+        self.botao_resert.move(220,NUM20)#janela
+        self.botao_resert.resize(NUM180,NUM40)
+        self.botao_resert.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 18px}')#RED
+        self.botao_resert.clicked.connect(self.apagar_registro)
+        self.botao_resert.show()
+
+        self.LABEL_INF_RESERT = QLabel(self)
+        self.LABEL_INF_RESERT.move(220,70)
+        self.LABEL_INF_RESERT.setText("  * INICIA TODAS AS INFORMAÇÕES.")
+        self.LABEL_INF_RESERT.resize(300,20)
+        self.LABEL_INF_RESERT.setStyleSheet('QLabel{background-color: #00FF00; font: italic;font-size: 14px}')# 
+        self.LABEL_INF_RESERT.show()
     
 
 

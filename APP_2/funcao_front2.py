@@ -4,7 +4,7 @@ from PyQt5.QtCore        import QTimer
     CONFIGURACOES APP
 '''
 from configuracoesapp.string_letra import (
-    JANELA1,JANELA2,JANELA3,JANELA4,JANELA5,
+    JANELA1,JANELA2,JANELA3,JANELA4,JANELA5,JANELA6,
     INI_LABEL,DESA_LABEL
     )
 from configuracoesapp.letra import true_lt
@@ -53,6 +53,7 @@ class Processo_front:
 
         self.estado_frame_false(self.if_var)
 
+    
     ## ------------------------------------------
     #  processador
     def widget_processador(self):
@@ -71,6 +72,19 @@ class Processo_front:
         self.estado_frame_false(self.if_var)
         
     
+    def whidget_configuracoes(self):
+    
+        if self.if_var != JANELA6:
+            
+            self.geral_destroi(self.if_var)
+            self.estado_frame_true(self.if_var)
+
+            self.if_var = JANELA6
+
+            self.whidget_configuracoes_6()
+
+            self.estado_frame_false(self.if_var)
+
     def widget_processador121(self):
     
         if self.val == true_lt:
