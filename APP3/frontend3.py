@@ -19,34 +19,36 @@ class FrontEnd3(QMainWindow):
         self.LABEL3_BAT.move(35,70)
         self.LABEL3_BAT.setText("BATERIA")
         self.LABEL3_BAT.resize(180,25)
-        self.LABEL3_BAT.setStyleSheet('QLabel{background-color: #00FF00; font: bold;font-size: 20px}')# 
+        self.LABEL3_BAT.setStyleSheet('QLabel{background-color: #FF4500; font: bold;font-size: 20px}')# 
         self.LABEL3_BAT.setAlignment(QtCore.Qt.AlignCenter)
 
         self.LABEL3_RAM = QLabel(self)
         self.LABEL3_RAM.move(35,100)
         self.LABEL3_RAM.setText("RAM")
         self.LABEL3_RAM.resize(180,25)
-        self.LABEL3_RAM.setStyleSheet('QLabel{background-color: #00FF00; font: bold;font-size: 20px}')# 
+        self.LABEL3_RAM.setStyleSheet('QLabel{background-color: #FF4500; font: bold;font-size: 20px}')# 
         self.LABEL3_RAM.setAlignment(QtCore.Qt.AlignCenter)
 
         self.LABEL3_TEMP = QLabel(self)
         self.LABEL3_TEMP.move(35,130)
         self.LABEL3_TEMP.setText("TEMPERATURA")
         self.LABEL3_TEMP.resize(180,25)
-        self.LABEL3_TEMP.setStyleSheet('QLabel{background-color: #00FF00; font: bold;font-size: 20px}')# 
+        self.LABEL3_TEMP.setStyleSheet('QLabel{background-color: #FF4500; font: bold;font-size: 20px}')# 
         self.LABEL3_TEMP.setAlignment(QtCore.Qt.AlignCenter)
 
         self.LABEL3_COOLER = QLabel(self)
         self.LABEL3_COOLER.move(35,160)
         self.LABEL3_COOLER.setText("COOLER")
         self.LABEL3_COOLER.resize(180,25)
-        self.LABEL3_COOLER.setStyleSheet('QLabel{background-color: #00FF00; font: bold;font-size: 20px}')# 
+        self.LABEL3_COOLER.setStyleSheet('QLabel{background-color: #FF4500; font: bold;font-size: 20px}')# 
         self.LABEL3_COOLER.setAlignment(QtCore.Qt.AlignCenter)
 
         self.LABEL3_PROC = QLabel(self)
         self.LABEL3_PROC.move(35,190)
         self.LABEL3_PROC.setText("PROCESSADOR")
         self.LABEL3_PROC.resize(180,25)
-        self.LABEL3_PROC.setStyleSheet('QLabel{background-color: #00FF00; font: bold;font-size: 20px}')# 
+        self.LABEL3_PROC.setStyleSheet('QLabel{background-color: #FF4500; font: bold;font-size: 20px}')# 
         self.LABEL3_PROC.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.verificar_text_atlabelcor()
        

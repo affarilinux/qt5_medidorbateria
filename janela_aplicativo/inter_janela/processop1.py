@@ -11,5 +11,3 @@ class ProcessoJanela1(QMainWindow):
         self.jt.close()
 
             
-        
-        

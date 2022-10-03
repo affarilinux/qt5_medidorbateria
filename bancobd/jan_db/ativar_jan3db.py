@@ -1,7 +1,9 @@
+
 '''
     CONFIGURACOES APP
 '''
 from configuracoesapp.numerostrig import NUMS1
+from configuracoesapp.string_letra import PROCESSADOR
 class AtivarJanela3:
 
     def ativar_janela_processador(self,num_proc):
@@ -15,6 +17,9 @@ class AtivarJanela3:
         
             if num_proc >= row_at3:
 
-                print(row_at3)
+                self.ativar_janela_temporaria()
+
+                self.cursorsq.execute("UPDATE JANELA3 SET NIVEL_JANELA = ?",(PROCESSADOR,))
+                
 
         self.sair_banco()
