@@ -19,6 +19,8 @@ class Processo:
         self.grafico = NUM0
         self.at_des_grafico = NUM0
         self.loop_qtimer = NUM0
+        self.whidget_dest = 0
+        self.whidget_frameeframe = 0
         
     def widget_processador12(self,state):
     

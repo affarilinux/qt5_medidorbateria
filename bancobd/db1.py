@@ -20,7 +20,7 @@ class Bancosqlite1(QMainWindow):
 
         qtimer_loop_close = QTimer        ( self )
 
-        qtimer_loop_close.setInterval     ( 3000 )
+        qtimer_loop_close.setInterval     ( 2000 )
         qtimer_loop_close.start           ()
 
         #chamada de funçãO

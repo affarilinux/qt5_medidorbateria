@@ -11,11 +11,13 @@ from configuracoesapp.numero import NUM1
 
 class DestWidget(QMainWindow):
 
+## ----------------------------------------------
+## chamada
     def geral_destroi(self,des):
 
         if des == JANELA1:
             self.dest_janela_1()
-
+            
         elif des == JANELA2:
             self.dest_janela_2()
         
@@ -23,13 +25,26 @@ class DestWidget(QMainWindow):
             self.dest_janela_3()
             
         elif des == JANELA4:
-            self.dest_janela_4()
+
+            self.LABEL_4x_COO.deleteLater()        
 
         elif des == JANELA5:
-            self.dest_janela_5()
 
+            self.chart_delete()
+
+            self.botao_grap_p.deleteLater()
+            
+            if self.salvar_label == DESA_LABEL:
+                self.destif_janela5()
+  
         elif des == JANELA6:
-            self.dest_janela_6()
+
+            self.botao_resert.deleteLater()
+            self.LABEL_INF_RESERT.deleteLater()
+          
+
+    ## -------------------------------------------
+    ## funcoes
 
     def dest_janela_1(self):
         print(1111)
@@ -40,28 +55,6 @@ class DestWidget(QMainWindow):
     def dest_janela_3(self):
         print(3333)
         
-    def dest_janela_4(self):
-        
-        self.LABEL_4x_COO.deleteLater()
-
-    def dest_janela_5(self):
-        
-        self.chart_delete()
-        self.botao_grap_p.deleteLater()
-        self.LABEL_AP.deleteLater()
-        self.LABEL_LIN.deleteLater() 
-        self.QCB_C.deleteLater()
-        self.spin.deleteLater()
-        self.LABEL_INFO.deleteLater()
-        self.LABEL_INFO_NUM.deleteLater()
-
-        if self.salvar_label == DESA_LABEL:
-            self.destif_janela5()
-
-    def dest_janela_6(self):
-        
-        self.botao_resert.deleteLater()
-        self.LABEL_INF_RESERT.deleteLater()
 
     def chart_delete(self):
         
@@ -74,3 +67,22 @@ class DestWidget(QMainWindow):
         self.qtimer_bateria1.stop()
 
         self.salvar_label = INI_LABEL
+
+    def label_fixo_processo(self):
+
+        if self.whidget_dest == 2:
+
+            self.LABEL_AP.deleteLater()
+            self.LABEL_LIN.deleteLater() 
+            self.LABEL_INFO.deleteLater()
+            self.LABEL_INFO_NUM.deleteLater()
+
+            self.whidget_dest = 0
+
+    def processo_spin_dest(self):
+
+        if self.whidget_frameeframe == 2:
+            self.QCB_C.deleteLater()
+            self.spin.deleteLater()
+          
+            self.whidget_frameeframe =0

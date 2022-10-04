@@ -3,7 +3,7 @@ import sqlite3
 '''
     configuracoesapp
 '''
-from configuracoesapp.numerostrig import NUMS1
+from configuracoesapp.numerostrig import NUMS1,NUMS2,NUMS3
 from configuracoesapp.string_letra import true_s,false_s
 from configuracoesapp.letra import  none_lt
 
@@ -121,6 +121,7 @@ class Bancosqlite:
         
         ##----------------------------------------
         ## janela3
+        ##  processador
         self.cursorsq.execute("SELECT * from JANELA3 WHERE ID_JANELA = ?",(NUMS1,))
         record_niv = self.cursorsq.fetchone()
         
@@ -132,6 +133,36 @@ class Bancosqlite:
                     VALUES (?,?,?)""",(NUMS1,100,false_s))
 
         elif record_niv != none_lt:
+
+             self.cursorsq.execute("UPDATE  JANELA3 SET tipo_chamada = ?",(false_s,))
+
+        ## ram
+        self.cursorsq.execute("SELECT * from JANELA3 WHERE ID_JANELA = ?",(NUMS2,))
+        record_niv2 = self.cursorsq.fetchone()
+        
+        if record_niv2 == none_lt:
+            
+            self.cursorsq.execute(
+                """INSERT INTO JANELA3(
+                    ID_JANELA,NIVEL_JANELA,tipo_chamada ) 
+                    VALUES (?,?,?)""",(NUMS2,100,false_s))
+
+        elif record_niv2 != none_lt:
+
+             self.cursorsq.execute("UPDATE  JANELA3 SET tipo_chamada = ?",(false_s,))
+
+        ## temperatura
+        self.cursorsq.execute("SELECT * from JANELA3 WHERE ID_JANELA = ?",(NUMS3,))
+        record_niv2 = self.cursorsq.fetchone()
+        
+        if record_niv2 == none_lt:
+            
+            self.cursorsq.execute(
+                """INSERT INTO JANELA3(
+                    ID_JANELA,NIVEL_JANELA,tipo_chamada ) 
+                    VALUES (?,?,?)""",(NUMS3,100,false_s))
+
+        elif record_niv2 != none_lt:
 
              self.cursorsq.execute("UPDATE  JANELA3 SET tipo_chamada = ?",(false_s,))
 
