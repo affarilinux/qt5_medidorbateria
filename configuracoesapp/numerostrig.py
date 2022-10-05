@@ -1,3 +1,4 @@
+NUMS0 = "0"
 NUMS1 = "1"
 NUMS2 = "2"
 NUMS3 = "3"

@@ -8,7 +8,7 @@ from configuracoesapp.numero import (
     NUM5,NUM10,NUM20,NUM40,NUM140,NUM180,NUM200
     )
 from configuracoesapp.letra import false_lt
-from configuracoesapp.string_letra import JANELA4, JANELA6
+from configuracoesapp.string_letra import RAM_S,PROCESSADOR
 
 class GUIFront2(QMainWindow):
     def __init__( self ):
@@ -28,7 +28,7 @@ class GUIFront2(QMainWindow):
         self.botao2_janela.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 18px}')#RED
         self.botao2_janela.clicked.connect(self.whidget_bateria)
 
-        self.botao2_janela2= QPushButton('RAM',self)
+        self.botao2_janela2= QPushButton(RAM_S,self)
         self.botao2_janela2.move(NUM10,80)#janela
         self.botao2_janela2.resize(NUM180,NUM40)
         self.botao2_janela2.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 18px}')#RED
@@ -46,7 +46,7 @@ class GUIFront2(QMainWindow):
         self.botao2_janela4.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 18px}')#RED
         self.botao2_janela4.clicked.connect(self.Whidget_cooler)
 
-        self.botao2_janela5= QPushButton('PROCESSADOR',self)
+        self.botao2_janela5= QPushButton(PROCESSADOR,self)
         self.botao2_janela5.move(NUM10,260)#janela
         self.botao2_janela5.resize(NUM180,NUM40)
         self.botao2_janela5.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 18px}')#RED
@@ -62,7 +62,16 @@ class GUIFront2(QMainWindow):
         self.estado_frame_false(self.if_var)
 
     ##--------------------------------------------
-    ## frame 5
+     ## frame 3
+    def Whidget_TEMPERATURA(self):
+
+        self.LABEL_INFO_AVISO_IMP = QLabel(self)
+        self.LABEL_INFO_AVISO_IMP.move(220,340)
+        self.LABEL_INFO_AVISO_IMP.setText("  * IDEIAL ENTRE 30 E 50.")
+        self.LABEL_INFO_AVISO_IMP.resize(420,20)
+        self.LABEL_INFO_AVISO_IMP.setStyleSheet('QLabel{background-color: #00FF00; font: italic;font-size: 14px}')# 
+        self.LABEL_INFO_AVISO_IMP.show()
+    ## frame 4
     def Whidget_cooler1(self):
 
         self.LABEL_4x_COO = QLabel(self)
@@ -82,9 +91,7 @@ class GUIFront2(QMainWindow):
         self.botao_grap_p.show()
         self.botao_grap_p.clicked.connect(self.botao_grafico_processador)
 
-        
 
-        
     ##loop 
     def print_salvo_processador(self):
 
@@ -100,21 +107,45 @@ class GUIFront2(QMainWindow):
     ## frame 6
     def whidget_configuracoes_6(self):
 
-        
         self.botao_resert= QPushButton('RESERT',self)
         self.botao_resert.move(220,NUM20)#janela
         self.botao_resert.resize(NUM180,NUM40)
         self.botao_resert.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 18px}')#RED
-        self.botao_resert.clicked.connect(self.apagar_registro)
+        self.botao_resert.clicked.connect(self.if_de_processo_tb)
         self.botao_resert.show()
 
         self.LABEL_INF_RESERT = QLabel(self)
         self.LABEL_INF_RESERT.move(220,70)
-        self.LABEL_INF_RESERT.setText("  * INICIA TODAS AS INFORMAÇÕES.")
+        self.LABEL_INF_RESERT.setText("  * INICIA AS INFORMAÇÕES.")
         self.LABEL_INF_RESERT.resize(300,20)
         self.LABEL_INF_RESERT.setStyleSheet('QLabel{background-color: #00FF00; font: italic;font-size: 14px}')# 
         self.LABEL_INF_RESERT.show()
+        
     
+    def filtro_configuracoes_6(self):
+
+        self.LABEL_FI = QLabel(self)
+        self.LABEL_FI.move(210,330)
+        self.LABEL_FI.resize(570,5)
+        self.LABEL_FI.setStyleSheet('QLabel{background-color: #0000CD;}')# MediumBlue
+        self.LABEL_FI.show()
+
+        self.botao_ATESTAR= QPushButton('OK',self)
+        self.botao_ATESTAR.move(600,340)#janela
+        self.botao_ATESTAR.resize(NUM180,NUM40)
+        self.botao_ATESTAR.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 20px}')#RED
+        self.botao_ATESTAR.clicked.connect(self.funcao_conf_geral)
+        self.botao_ATESTAR.show()
+
+        self.botao_REJEITAR= QPushButton('CANCELAR',self)
+        self.botao_REJEITAR.move(210,340)#janela
+        self.botao_REJEITAR.resize(NUM180,NUM40)
+        self.botao_REJEITAR.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 20px}')#RED
+        self.botao_REJEITAR.clicked.connect(self.filtro_configuracoes_6_dest)
+        self.botao_REJEITAR.show()
+
+
+
     ##--------------------------------------------
     ## frames and frames
     def whidget_frames_if (self):

@@ -1,6 +1,9 @@
 from PyQt5.QtWidgets import QMainWindow,QLabel
 from PyQt5 import QtCore
-
+'''
+    CONFIGURACOES APP
+''' 
+from configuracoesapp.string_letra import RAM_S,PROCESSADOR
 class FrontEnd3(QMainWindow):
 
     def __init__( self ):
@@ -24,7 +27,7 @@ class FrontEnd3(QMainWindow):
 
         self.LABEL3_RAM = QLabel(self)
         self.LABEL3_RAM.move(35,100)
-        self.LABEL3_RAM.setText("RAM")
+        self.LABEL3_RAM.setText(RAM_S)
         self.LABEL3_RAM.resize(180,25)
         self.LABEL3_RAM.setStyleSheet('QLabel{background-color: #FF4500; font: bold;font-size: 20px}')# 
         self.LABEL3_RAM.setAlignment(QtCore.Qt.AlignCenter)
@@ -45,10 +48,11 @@ class FrontEnd3(QMainWindow):
 
         self.LABEL3_PROC = QLabel(self)
         self.LABEL3_PROC.move(35,190)
-        self.LABEL3_PROC.setText("PROCESSADOR")
+        self.LABEL3_PROC.setText(PROCESSADOR)
         self.LABEL3_PROC.resize(180,25)
         self.LABEL3_PROC.setStyleSheet('QLabel{background-color: #FF4500; font: bold;font-size: 20px}')# 
         self.LABEL3_PROC.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.verificar_text_atlabelcor()
+        QtCore.QTimer.singleShot(2000, self.verificar_text_atlabelcor)
+        
        

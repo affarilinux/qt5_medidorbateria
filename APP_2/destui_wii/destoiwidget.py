@@ -41,6 +41,9 @@ class DestWidget(QMainWindow):
 
             self.botao_resert.deleteLater()
             self.LABEL_INF_RESERT.deleteLater()
+
+            if self.configuracoes_tb != None:
+                self.filtro_configuracoes_6_dest()
           
 
     ## -------------------------------------------
@@ -86,3 +89,9 @@ class DestWidget(QMainWindow):
             self.spin.deleteLater()
           
             self.whidget_frameeframe =0
+
+    def filtro_configuracoes_6_dest(self):
+
+        self.LABEL_FI.deleteLater()
+        self.botao_ATESTAR.deleteLater()
+        self.botao_REJEITAR.deleteLater()

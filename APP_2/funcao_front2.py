@@ -65,6 +65,8 @@ class Processo_front:
         
         self.whidget_frames_db_if()
         self.whidget_frames_if()
+        # WIDGET
+        self.Whidget_TEMPERATURA()
         self.estado_frame_false(self.if_var)
 
     def Whidget_cooler(self):
@@ -180,6 +182,19 @@ class Processo_front:
             if self.grafico == NUM1:
                 self.chart_delete()
                 self.grafico = NUM0
+
+    ##--------------------------------------------
+    ## configuracoes 6
+    def if_de_processo_tb (self):
+            self.configuracoes_tb = 0
+
+            self.filtro_configuracoes_6()
+
+    def funcao_conf_geral(self):
+       
+        if self.configuracoes_tb ==0:
+            self.apagar_registro()
+
 
 
 

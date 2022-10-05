@@ -27,3 +27,5 @@ class Ram100(QMainWindow):
         calculo_filtro_informacao = round ( calculo_por_centagem, NUM2 )
 
         self.label_100_vav_ram.setText("{} %".format(calculo_filtro_informacao))
+
+        self.ativar_janela_ram(calculo_filtro_informacao)

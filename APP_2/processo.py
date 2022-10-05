@@ -21,6 +21,7 @@ class Processo:
         self.loop_qtimer = NUM0
         self.whidget_dest = 0
         self.whidget_frameeframe = 0
+        self.configuracoes_tb = None
         
     def widget_processador12(self,state):
     

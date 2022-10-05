@@ -12,3 +12,4 @@ false_s = "False"
 true_s  = "True"
 
 PROCESSADOR = "PROCESSADOR"
+RAM_S = "RAM"

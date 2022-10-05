@@ -1,9 +1,10 @@
 import sqlite3
+from configuracoesapp.numero import NUM0,NUM1
 
 '''
     configuracoesapp
 '''
-from configuracoesapp.numerostrig import NUMS1,NUMS2,NUMS3
+from configuracoesapp.numerostrig import NUMS1,NUMS2,NUMS3,NUMS0
 from configuracoesapp.string_letra import true_s,false_s
 from configuracoesapp.letra import  none_lt
 
@@ -62,7 +63,8 @@ class Bancosqlite:
             """ CREATE TABLE if not exists JANELA3(
             ID_JANELA INTEGER PRIMARY KEY,
             NIVEL_JANELA INT,
-            tipo_chamada TEXT
+            tipo_chamada TEXT,
+            qtd_valor int
             )""")
 
         '''
@@ -134,7 +136,7 @@ class Bancosqlite:
 
         elif record_niv != none_lt:
 
-             self.cursorsq.execute("UPDATE  JANELA3 SET tipo_chamada = ?",(false_s,))
+             self.cursorsq.execute("UPDATE  JANELA3 SET tipo_chamada = ?where ID_JANELA = ?",(false_s,1))
 
         ## ram
         self.cursorsq.execute("SELECT * from JANELA3 WHERE ID_JANELA = ?",(NUMS2,))
@@ -149,7 +151,7 @@ class Bancosqlite:
 
         elif record_niv2 != none_lt:
 
-             self.cursorsq.execute("UPDATE  JANELA3 SET tipo_chamada = ?",(false_s,))
+             self.cursorsq.execute("UPDATE  JANELA3 SET tipo_chamada = ?where ID_JANELA = ?",(false_s,2))
 
         ## temperatura
         self.cursorsq.execute("SELECT * from JANELA3 WHERE ID_JANELA = ?",(NUMS3,))
@@ -159,13 +161,14 @@ class Bancosqlite:
             
             self.cursorsq.execute(
                 """INSERT INTO JANELA3(
-                    ID_JANELA,NIVEL_JANELA,tipo_chamada ) 
-                    VALUES (?,?,?)""",(NUMS3,100,false_s))
+                    ID_JANELA,NIVEL_JANELA,tipo_chamada,qtd_valor ) 
+                    VALUES (?,?,?,?)""",(NUMS3,100,false_s,0))
 
         elif record_niv2 != none_lt:
 
-             self.cursorsq.execute("UPDATE  JANELA3 SET tipo_chamada = ?",(false_s,))
+             self.cursorsq.execute("UPDATE  JANELA3 SET tipo_chamada = ?,qtd_valor = ?  where ID_JANELA = ?",(false_s,0,3))
 
+                       
     ## -------------------------------------------
     ## apagar dados
     def apagar_dados_tb(self):
@@ -208,6 +211,7 @@ class Bancosqlite:
                     
 
             def calculo_operacao(self):
+               
                 
                 while self.procv >= self.drink:
 
@@ -217,10 +221,14 @@ class Bancosqlite:
                     for dest1 in rec_dest1:
 
                         if self.procv < self.vb and self.procv >= self.drink:
+                            print(self.vb, self.drink)
+                            #print("as",self.procv)
                         
-                            print(self.vb)
-                            print(self.drink)
-                            #self.cursorsq.execute("DELETE from PROCESSADOR where numero_dia = ? ", (self.sdfg,))
+                            
+                            
+                            self.cursorsq.execute("DELETE from PROCESSADOR where numero_dia = ? ", (self.sdfg,))
+
+                            #print(self.procv)
 
                         self.sdfg = self.sdfg - 1
                         self.procv = dest1
