@@ -39,7 +39,3 @@ class Bancosqlite1(QMainWindow):
 
     def commit_banco1(self):
         self.bancoco.commit()
-   
-    
-
-    
