@@ -8,7 +8,7 @@ from configuracoesapp.numero import (
     NUM5,NUM10,NUM20,NUM40,NUM140,NUM180,NUM200
     )
 from configuracoesapp.letra import false_lt
-from configuracoesapp.string_letra import RAM_S,PROCESSADOR, TEMPERATURA_S,JANELA2,JANELA3,JANELA5
+from configuracoesapp.string_letra import RAM_S,PROCESSADOR, TEMPERATURA_S,JANELA2,JANELA3,JANELA5,JANELA1
 from configuracoesapp.numerostrig import NUMS1,NUMS2,NUMS3
 
 class GUIFront2(QMainWindow):
@@ -59,10 +59,60 @@ class GUIFront2(QMainWindow):
         self.botao2_conf.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 18px}')#RED
         self.botao2_conf.clicked.connect(self.whidget_configuracoes)
 
-        self.whidget_frames_if()
-        self.estado_frame_false(self.if_var)
+        self.whidget_bateria()
 
     ##--------------------------------------------
+    ## frame 1
+    def Whidget_BATERIA(self):
+
+        self.LABEL_INFO_AVISO_BAT = QLabel(self)
+        self.LABEL_INFO_AVISO_BAT.move(220,340)
+        self.LABEL_INFO_AVISO_BAT.setText("  * IDEAL ENTRE 20 E 80%.")
+        self.LABEL_INFO_AVISO_BAT.resize(420,20)
+        self.LABEL_INFO_AVISO_BAT.setStyleSheet('QLabel{background-color: #00FF00; font: italic;font-size: 14px}')# 
+        self.LABEL_INFO_AVISO_BAT.show()
+
+        self.LABEL_MIM_SPIN = QLabel(self)
+        self.LABEL_MIM_SPIN.move(330,210)
+        self.LABEL_MIM_SPIN.setText(" MINIMO")
+        self.LABEL_MIM_SPIN.resize(100,25)
+        self.LABEL_MIM_SPIN.setStyleSheet('QLabel{ font: italic;font-size: 20px}')# 
+        self.LABEL_MIM_SPIN.show()
+
+        self.LABEL_MAX_SPIN = QLabel(self)
+        self.LABEL_MAX_SPIN.move(330,250)
+        self.LABEL_MAX_SPIN.setText(" MAXIMO")
+        self.LABEL_MAX_SPIN.resize(100,25)
+        self.LABEL_MAX_SPIN.setStyleSheet('QLabel{ font: italic;font-size: 20px}')# 
+        self.LABEL_MAX_SPIN.show()
+
+        self.spin_mim = QSpinBox(self)
+        self.spin_mim.move(220,210)
+        self.spin_mim.resize(100,30)
+        self.spin_mim.setStyleSheet('QSpinBox{background-color: #EE82EE;font: bold; font-size: 20px}')# Violet
+        self.spin_mim.setMaximum(99)
+        self.spin_mim.setMinimum(1)
+        self.spin_mim.valueChanged.connect(self.if_qcb_batval)
+        self.spin_mim.show()
+
+        self.spin_max = QSpinBox(self)
+        self.spin_max.move(220,250)
+        self.spin_max.resize(100,30)
+        self.spin_max.setStyleSheet('QSpinBox{background-color: #EE82EE;font: bold; font-size: 20px}')# Violet
+        self.spin_max.setMaximum(100)
+        self.spin_max.setMinimum(2)
+        self.spin_max.valueChanged.connect(self.if_qcb_batval)
+        self.spin_max.show()
+
+        self.QCB_C_mm = QCheckBox("  ATIVAR CONTROLE",self)
+        self.QCB_C_mm.move(220,170)
+        self.QCB_C_mm.resize(250,30)
+        self.QCB_C_mm.setStyleSheet('QCheckBox{background-color: #EE82EE;font: bold; font-size: 20px}')# Violet
+        self.QCB_C_mm.stateChanged.connect(self.whidget_bateria_val) 
+        self.QCB_C_mm.setChecked( False )
+        self.QCB_C_mm.show()
+
+
      ## frame 3
     def Whidget_TEMPERATURA(self):
 
@@ -97,12 +147,20 @@ class GUIFront2(QMainWindow):
     def print_salvo_processador(self):
 
         self.LABEL_PRINT = QLabel(self)
-        self.LABEL_PRINT.move(380,210)
         self.LABEL_PRINT.setText("SALVO")
         self.LABEL_PRINT.resize(130,30)
         self.LABEL_PRINT.setStyleSheet('QLabel{background-color: #1E90FF; font: italic;font-size: 25px}')# DodgerBlue
         self.LABEL_PRINT.setAlignment(QtCore.Qt.AlignCenter)
         self.LABEL_PRINT.show()
+
+        if self.if_var == JANELA1:
+
+            self.LABEL_PRINT.move(450,210)
+
+        else:
+
+            self.LABEL_PRINT.move(380,210)
+            
 
     ##--------------------------------------------
     ## frame 6
@@ -145,8 +203,7 @@ class GUIFront2(QMainWindow):
         self.botao_REJEITAR.clicked.connect(self.filtro_configuracoes_6_dest)
         self.botao_REJEITAR.show()
 
-
-
+        
     ##--------------------------------------------
     ## frames and frames
     def whidget_frames_if (self):

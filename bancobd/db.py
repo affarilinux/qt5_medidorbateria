@@ -4,7 +4,7 @@ from configuracoesapp.numero import NUM0,NUM1
 '''
     configuracoesapp
 '''
-from configuracoesapp.numerostrig import NUMS1,NUMS2,NUMS3,NUMS0
+from configuracoesapp.numerostrig import NUMS1,NUMS2,NUMS3,NUMS4
 from configuracoesapp.string_letra import true_s,false_s
 from configuracoesapp.letra import  none_lt
 
@@ -168,6 +168,21 @@ class Bancosqlite:
 
              self.cursorsq.execute("UPDATE  JANELA3 SET tipo_chamada = ?,qtd_valor = ?  where ID_JANELA = ?",(false_s,0,3))
 
+        ## temperatura
+        self.cursorsq.execute("SELECT * from JANELA3 WHERE ID_JANELA = ?",(NUMS4,))
+        record_niv4 = self.cursorsq.fetchone()
+        
+        if record_niv4 == none_lt:
+            
+            self.cursorsq.execute(
+                """INSERT INTO JANELA3(
+                    ID_JANELA,NIVEL_JANELA,tipo_chamada,qtd_valor ) 
+                    VALUES (?,?,?,?)""",(NUMS4,99,false_s,100))
+
+        elif record_niv2 != none_lt:
+
+             self.cursorsq.execute("UPDATE  JANELA3 SET tipo_chamada = ?  where ID_JANELA = ?",(false_s,4))
+
                        
     ## -------------------------------------------
     ## apagar dados
@@ -211,7 +226,7 @@ class Bancosqlite:
                     
 
             def calculo_operacao(self):
-               
+                FGH = 0
                 
                 while self.procv >= self.drink:
 
@@ -221,8 +236,9 @@ class Bancosqlite:
                     for dest1 in rec_dest1:
 
                         if self.procv < self.vb and self.procv >= self.drink:
-                            print(self.vb, self.drink)
-                            #print("as",self.procv)
+                            FGH = FGH+1
+                            print(FGH)
+                            print(self.sdfg)
                         
                             
                             

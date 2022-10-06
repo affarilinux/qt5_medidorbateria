@@ -1,4 +1,3 @@
-from PyQt5.QtCore        import QTimer
 
 '''
     CONFIGURACOES APP
@@ -25,12 +24,16 @@ class Processo_front:
 
             self.if_var = JANELA1
 
-        self.label_fixo_processo()
 
+        self.label_fixo_processo()
+        
         self.if_QCB_spin()
 
         ## whidget
         self.whidget_frames_if()
+        self.Whidget_BATERIA()
+       
+        self.mostrar_spin_bateria()
         ##estado
         self.estado_frame_false(self.if_var)
 
@@ -150,17 +153,8 @@ class Processo_front:
                 self.quantidade_banco_jan3(value,1)
 
             if self.salvar_label == INI_LABEL:
-                self.print_salvo_processador()
-
-                self.qtimer_bateria1 = QTimer        ( self )
-
-                self.qtimer_bateria1.setInterval     ( NUM5000 )
-                self.qtimer_bateria1.start           ()
-
-                #chamada de funçãO
-                self.qtimer_bateria1.timeout.connect ( self.destif_janela5 ) 
-
-                self.salvar_label = DESA_LABEL
+                
+                self.qtimer_loop_salvar()
                
         
     ##--------------------------------------------
@@ -178,6 +172,20 @@ class Processo_front:
             if self.grafico == NUM1:
                 self.chart_delete()
                 self.grafico = NUM0
+    ##--------------------------------------------
+    ##bateria
+    def if_qcb_batval(self):
+        
+        if self.val_bat == true_lt:
+
+            value_mim = self.spin_mim.value()
+            value_max = self.spin_max.value()
+            
+            self.salvar_spinbateria(value_mim,value_max)
+
+            if self.salvar_label == INI_LABEL:
+                
+                self.qtimer_loop_salvar()
 
     ##--------------------------------------------
     ## configuracoes 6

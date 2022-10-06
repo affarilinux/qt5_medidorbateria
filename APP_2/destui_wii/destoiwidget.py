@@ -18,6 +18,14 @@ class DestWidget(QMainWindow):
         if des == JANELA1:
             self.dest_janela_1()
             self.destif_janela5()
+
+            self.LABEL_INFO_AVISO_BAT.deleteLater()
+            self.LABEL_MIM_SPIN.deleteLater()
+            self.LABEL_MAX_SPIN.deleteLater()
+            self.spin_mim .deleteLater()
+            self.spin_max.deleteLater()
+            self.QCB_C_mm.setChecked( False )
+            self.QCB_C_mm.deleteLater()
             
         elif des == JANELA2:
             self.dest_janela_2()
