@@ -13,10 +13,12 @@ class BateriaJan1:
 
         n2j3_4 = self.cursorsq.fetchone()
                
-        if batera < n2j3_4[0] or batera > n2j3_4[1]:
+        if batera <= n2j3_4[0] or batera >= n2j3_4[1]:
             
             self.cursorsq.execute(
             "UPDATE  JANELA3 SET tipo_chamada=?  where ID_JANELA = ?",(BATERIA_S,4))
+
+            self.ativar_janela_temporaria()
 
         self.commit_banco()
         self.sair_banco()

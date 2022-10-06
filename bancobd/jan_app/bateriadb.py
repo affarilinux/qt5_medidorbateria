@@ -18,7 +18,7 @@ class ProcessoBateria:
             self.ativar_banco1()
             
             self.cur.execute(
-                "UPDATE  JANELA3 SET tipo_chamada = ?,NIVEL_JANELA =?,qtd_valor=?  where ID_JANELA = ?",(BATERIA_S,mim,max,4))
+                "UPDATE  JANELA3 SET NIVEL_JANELA =?,qtd_valor=?  where ID_JANELA = ?",(mim,max,4))
             
             
             self.commit_banco1()
@@ -27,9 +27,12 @@ class ProcessoBateria:
         else:
 
             if self.loop_spi == 0:
-                
                 self.loop_spi =1
-                QtCore.QTimer.singleShot(4000, self.mostrar_spin_bateria)
+                
+                #QtCore.QTimer.singleShot(4000, self.mostrar_spin_bateria)
+                self.mostrar_spin_bateria()
+
+                
 
     def mostrar_spin_bateria(self):
 

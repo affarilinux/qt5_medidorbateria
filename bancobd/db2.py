@@ -5,8 +5,8 @@ from PyQt5 import QtCore
 '''
     CONFIGURACOES APP
 '''
-from configuracoesapp.numerostrig import NUMS1,NUMS2,NUMS3
-from configuracoesapp.string_letra import PROCESSADOR,false_s,RAM_S,TEMPERATURA_S
+from configuracoesapp.numerostrig import NUMS1,NUMS2,NUMS3,NUMS4
+from configuracoesapp.string_letra import PROCESSADOR,false_s,RAM_S,TEMPERATURA_S,BATERIA_S
 
 class BancoSqlite3:
 
@@ -32,6 +32,7 @@ class BancoSqlite3:
         self.ler_text(NUMS1)
         self.ler_text_2(NUMS2)
         self.ler_text_3(NUMS3)
+        self.ler_text_4(NUMS4)
 
         self.commit_banco2()
         self.sair_banco2()
@@ -93,4 +94,21 @@ class BancoSqlite3:
 
             self.LABEL3_TEMP.setText(TEMPERATURA_S)
             self.LABEL3_TEMP.setStyleSheet('QLabel{background-color: #FF4500;font: bold;font-size: 20px}')#
+
+    def ler_text_4(self,Nt_4):
+        
+        self.cursort2.execute(
+            """SELECT tipo_chamada from JANELA3 
+            WHERE ID_JANELA = ?""",(Nt_4,))
+        rec4_3 = self.cursort2.fetchone()
+        
+        
+        if rec4_3[0] == BATERIA_S:
+            
+            self.LABEL3_BAT.setStyleSheet('QLabel{background-color: #00FF00; font: bold;font-size: 20px}')# 
+            self.cursort2.execute("UPDATE JANELA3 SET tipo_chamada = ?,qtd_valor = ? WHERE ID_JANELA = ?",(false_s, 0,Nt_4))
+
+        else:
+
+            self.LABEL3_BAT.setStyleSheet('QLabel{background-color: #FF4500; font: bold;font-size: 20px}')# 
             
