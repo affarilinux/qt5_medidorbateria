@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import QMainWindow
 '''
     CONFIGURACOES APP
 '''
-from configuracoesapp.letra import false_lt
+from configuracoesapp.letra import false_lt,true_lt
 
 class Bateria100(QMainWindow):
     
@@ -13,6 +13,7 @@ class Bateria100(QMainWindow):
     def chamada_qtimerbateria(self):
         self.timer_bateria_100()
         self.timer_bateria_estado()
+
 
         ##100%
     def timer_bateria_100( self ):
@@ -30,6 +31,9 @@ class Bateria100(QMainWindow):
 
         self.label_100_vav.setText("{} %".format(entrada_informacao))
 
+        self.avisar_salvar_jan3(entrada_informacao)
+
+        
         ##estado da bateria
     def timer_bateria_estado( self ):
     
@@ -39,7 +43,7 @@ class Bateria100(QMainWindow):
           # puxa uma informação se esta plugado na internet
           informacao_carregamento = informacao_bateria.power_plugged      
 
-          if informacao_carregamento   == True :
+          if informacao_carregamento   == true_lt :
                 
                 aed = "00:00:00"
                 

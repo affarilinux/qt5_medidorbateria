@@ -31,6 +31,7 @@ from bancobd.jan_db.cooler_db import BancoCooler
 from bancobd.jan_db.banco_salvar import SalvarProcessador
 from bancobd.jan_db.data_bd_p import DataAtual
 from bancobd.jan_db.ativar_jan3db import AtivarJanela3
+from bancobd.jan_db.bateria_db import BateriaJan1
 
 '''
     configuracoes app
@@ -45,7 +46,7 @@ class Principal(
     SecundariaApp,ProcessoJanela1,
     #banco de dados
     Bancosqlite,BancoCooler,SalvarProcessador,
-    DataAtual,AtivarJanela3,
+    DataAtual,AtivarJanela3,BateriaJan1,
     #minha janela
     QMainWindow):
 
