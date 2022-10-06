@@ -27,9 +27,7 @@ class Processo_front:
 
         self.label_fixo_processo()
 
-        if self.whidget_frameeframe == 1:
-            self.whidget_frameeframe =2
-            self.processo_spin_dest()
+        self.if_QCB_spin()
 
         ## whidget
         self.whidget_frames_if()
@@ -44,6 +42,7 @@ class Processo_front:
             self.estado_frame_true(self.if_var)
 
             self.if_var = JANELA2
+
         self.label_fixo_processo()
 
         self.whidget_frames_db_if()
@@ -61,6 +60,7 @@ class Processo_front:
             self.estado_frame_true(self.if_var)
 
             self.if_var = JANELA3
+
         self.label_fixo_processo()
         
         self.whidget_frames_db_if()
@@ -82,9 +82,7 @@ class Processo_front:
             self.whidget_dest = 2
             self.label_fixo_processo()
 
-        if self.whidget_frameeframe == 1:
-            self.whidget_frameeframe =2
-            self.processo_spin_dest()
+        self.if_QCB_spin()
 
         self.Whidget_cooler1()
         
@@ -128,9 +126,7 @@ class Processo_front:
             self.whidget_dest = 2
             self.label_fixo_processo()
         
-        if self.whidget_frameeframe == 1:
-            self.whidget_frameeframe =2
-            self.processo_spin_dest()
+        self.if_QCB_spin()
 
         self.whidget_configuracoes_6()
 
@@ -139,7 +135,7 @@ class Processo_front:
     ###-------------------------------------------
     ##loop
     def widget_processador121(self):
-    
+   
         if self.val == true_lt:
 
             value = self.spin.value()
@@ -194,6 +190,17 @@ class Processo_front:
        
         if self.configuracoes_tb ==0:
             self.apagar_registro()
+
+    def if_QCB_spin(self):
+
+        if self.whidget_frameeframe == 1:
+            self.whidget_frameeframe =2
+            self.processo_spin_dest()
+
+    def desativar_QCB(self):
+        self.QCB_C.setChecked( False )
+
+
 
 
 

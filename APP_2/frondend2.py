@@ -8,7 +8,8 @@ from configuracoesapp.numero import (
     NUM5,NUM10,NUM20,NUM40,NUM140,NUM180,NUM200
     )
 from configuracoesapp.letra import false_lt
-from configuracoesapp.string_letra import RAM_S,PROCESSADOR
+from configuracoesapp.string_letra import RAM_S,PROCESSADOR, TEMPERATURA_S,JANELA2,JANELA3,JANELA5
+from configuracoesapp.numerostrig import NUMS1,NUMS2,NUMS3
 
 class GUIFront2(QMainWindow):
     def __init__( self ):
@@ -34,7 +35,7 @@ class GUIFront2(QMainWindow):
         self.botao2_janela2.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 18px}')#RED
         self.botao2_janela2.clicked.connect(self.whidget_ram)
 
-        self.botao2_janela3= QPushButton('TEMPERATURA',self)
+        self.botao2_janela3= QPushButton(TEMPERATURA_S,self)
         self.botao2_janela3.move(NUM10,NUM140)#janela
         self.botao2_janela3.resize(NUM180,NUM40)
         self.botao2_janela3.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 18px}')#RED
@@ -184,13 +185,7 @@ class GUIFront2(QMainWindow):
     def whidget_frames_db_if(self):
 
         if self.whidget_frameeframe == 0:
-            self.QCB_C = QCheckBox("  ATIVAR CONTROLE",self)
-            self.QCB_C.move(220,170)
-            self.QCB_C.resize(250,30)
-            self.QCB_C.setStyleSheet('QCheckBox{background-color: #EE82EE;font: bold; font-size: 20px}')# Violet
-            self.QCB_C.stateChanged.connect(self.widget_processador12) 
-            self.QCB_C.show()
-
+            
             self.spin = QSpinBox(self)
             self.spin.move(220,210)
             self.spin.resize(100,30)
@@ -202,10 +197,25 @@ class GUIFront2(QMainWindow):
 
             self.whidget_frameeframe = 1
 
-        if self.whidget_frameeframe == 1:
-            self.QCB_C.setChecked( false_lt )
+            self.QCB_C = QCheckBox("  ATIVAR CONTROLE",self)
+            self.QCB_C.move(220,170)
+            self.QCB_C.resize(250,30)
+            self.QCB_C.setStyleSheet('QCheckBox{background-color: #EE82EE;font: bold; font-size: 20px}')# Violet
+            self.QCB_C.stateChanged.connect(self.widget_processador12) 
+            self.QCB_C.show()
 
-        self.spin_jan2_frameproc()
+        if self.whidget_frameeframe == 1 :
+             self.desativar_QCB()
+            
+        if  self.if_var ==  JANELA2:
+            self.spin_jan2_frameproc(NUMS2)
+
+        elif self.if_var ==  JANELA3:
+            self.spin_jan2_frameproc(NUMS3)
+
+        elif self.if_var ==  JANELA5:
+            self.spin_jan2_frameproc(NUMS1)
+        
         
         
         

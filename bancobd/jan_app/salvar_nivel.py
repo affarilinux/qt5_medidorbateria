@@ -7,33 +7,16 @@ from configuracoesapp.string_letra import JANELA2,JANELA3,JANELA5
 
 class NivelJanela3:
 
-    def spin_jan2_frameproc(self):
+    def spin_jan2_frameproc(self,spi):
         
         self.ativar_banco1()
 
-        if  self.if_var ==  JANELA2:
-            self.cur.execute("SELECT   NIVEL_JANELA  from JANELA3 WHERE ID_JANELA = ?",(NUMS2,))
-            spin_ler = self.cur.fetchone()
+        self.cur.execute("SELECT   NIVEL_JANELA  from JANELA3 WHERE ID_JANELA = ?",(spi,))
+        spin_ler_3 = self.cur.fetchone()
 
-            for row_sp  in spin_ler:
-               
-                self.spin.setValue(row_sp)
-
-        elif self.if_var ==  JANELA3:
-            self.cur.execute("SELECT   NIVEL_JANELA  from JANELA3 WHERE ID_JANELA = ?",(NUMS3,))
-            spin_ler = self.cur.fetchone()
-
-            for row_sp  in spin_ler:
-               
-                self.spin.setValue(row_sp)
-
-        elif self.if_var ==  JANELA5:
-            self.cur.execute("SELECT   NIVEL_JANELA  from JANELA3 WHERE ID_JANELA = ?",(NUMS1,))
-            spin_ler = self.cur.fetchone()
-
-            for row_sp  in spin_ler:
-               
-                self.spin.setValue(row_sp)
+        for row_sp1  in spin_ler_3:
+                
+                self.spin.setValue(row_sp1)
 
         self.sair_banco1()
             

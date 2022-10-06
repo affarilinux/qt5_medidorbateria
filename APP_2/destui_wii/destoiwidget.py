@@ -17,16 +17,21 @@ class DestWidget(QMainWindow):
 
         if des == JANELA1:
             self.dest_janela_1()
+            self.destif_janela5()
             
         elif des == JANELA2:
             self.dest_janela_2()
+            self.destif_janela5()
         
         elif des == JANELA3:
-            self.dest_janela_3()
+            
+            self.LABEL_INFO_AVISO_IMP.deleteLater()
+            self.destif_janela5()
             
         elif des == JANELA4:
 
-            self.LABEL_4x_COO.deleteLater()        
+            self.LABEL_4x_COO.deleteLater()    
+            self.destif_janela5()    
 
         elif des == JANELA5:
 
@@ -34,8 +39,7 @@ class DestWidget(QMainWindow):
 
             self.botao_grap_p.deleteLater()
             
-            if self.salvar_label == DESA_LABEL:
-                self.destif_janela5()
+            self.destif_janela5()
   
         elif des == JANELA6:
 
@@ -44,6 +48,8 @@ class DestWidget(QMainWindow):
 
             if self.configuracoes_tb != None:
                 self.filtro_configuracoes_6_dest()
+                
+            self.destif_janela5()
           
 
     ## -------------------------------------------
@@ -54,22 +60,20 @@ class DestWidget(QMainWindow):
 
     def dest_janela_2(self):
         print(2222)
-
-    def dest_janela_3(self):
-        print(3333)
         
-
     def chart_delete(self):
         
         if self.grafico ==NUM1:
             self.chart.close()      
 
     def destif_janela5(self):
-        self.LABEL_PRINT.deleteLater()
 
-        self.qtimer_bateria1.stop()
+        if self.salvar_label == DESA_LABEL:
+            self.LABEL_PRINT.deleteLater()
 
-        self.salvar_label = INI_LABEL
+            self.qtimer_bateria1.stop()
+
+            self.salvar_label = INI_LABEL
 
     def label_fixo_processo(self):
 
@@ -85,6 +89,7 @@ class DestWidget(QMainWindow):
     def processo_spin_dest(self):
 
         if self.whidget_frameeframe == 2:
+            self.desativar_QCB()
             self.QCB_C.deleteLater()
             self.spin.deleteLater()
           
