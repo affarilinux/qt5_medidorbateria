@@ -24,6 +24,7 @@ class Processo:
 
         self.qtimer_lop = 0
         self.At_des     = 0
+        self.entre_2 = 0
         
     def widget_processador12(self,state):
     

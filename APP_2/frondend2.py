@@ -117,14 +117,14 @@ class GUIFront2(QMainWindow):
         self.botao_grap_bat_car.resize(220,NUM40)
         self.botao_grap_bat_car.setStyleSheet('QPushButton{background-color: #1E90FF; font: bold; font-size: 20px}')#DodgerBlue
         self.botao_grap_bat_car.show()
-        #self.botao_grap_bat_car.clicked.connect(self.botao_grafico_processador)
+        self.botao_grap_bat_car.clicked.connect(lambda:self.button_lamda("a1"))
 
         self.botao_grap_bat_des= QPushButton('DESCARREGANDO',self)
         self.botao_grap_bat_des.move(550,50)#janela
         self.botao_grap_bat_des.resize(220,NUM40)
         self.botao_grap_bat_des.setStyleSheet('QPushButton{background-color: #1E90FF; font: bold; font-size: 20px}')#DodgerBlue
         self.botao_grap_bat_des.show()
-        #self.botao_grap_bat_des.clicked.connect(self.botao_grafico_processador)
+        self.botao_grap_bat_des.clicked.connect(lambda:self.button_lamda("a2"))
 
     ## frame 2
     def whidget_ram(self):
@@ -134,7 +134,7 @@ class GUIFront2(QMainWindow):
         self.botao_grap_ram.resize(200,NUM40)
         self.botao_grap_ram.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 20px}')#RED
         self.botao_grap_ram.show()
-        #self.botao_grap_tp.clicked.connect(self.botao_grafico_processador)
+        self.botao_grap_ram.clicked.connect(self.grafico_processador)
 
      ## frame 3
     def Whidget_TEMPERATURA(self):
@@ -151,7 +151,7 @@ class GUIFront2(QMainWindow):
         self.botao_grap_tp.resize(200,NUM40)
         self.botao_grap_tp.setStyleSheet('QPushButton{background-color: #008B8B; font: bold; font-size: 20px}')#DarkCyan
         self.botao_grap_tp.show()
-        #self.botao_grap_tp.clicked.connect(self.botao_grafico_processador)
+        self.botao_grap_tp.clicked.connect(self.grafico_processador)
     ## frame 4
     def Whidget_cooler1(self):
 

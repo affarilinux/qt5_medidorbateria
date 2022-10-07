@@ -18,6 +18,7 @@ class DestWidget(QMainWindow):
         if des == JANELA1:
             
             self.destif_janela5()
+            self.verificar_desativar_grafico()
 
             self.LABEL_INFO_AVISO_BAT.deleteLater()
             self.LABEL_MIM_SPIN.deleteLater()
@@ -32,6 +33,7 @@ class DestWidget(QMainWindow):
             
         elif des == JANELA2:
            
+            self.verificar_desativar_grafico()
             self.destif_janela5()
             self.botao_grap_ram.deleteLater()
         
@@ -40,6 +42,7 @@ class DestWidget(QMainWindow):
             self.LABEL_INFO_AVISO_IMP.deleteLater()
             self.botao_grap_tp.deleteLater()
             self.destif_janela5()
+            self.verificar_desativar_grafico()
             
         elif des == JANELA4:
 

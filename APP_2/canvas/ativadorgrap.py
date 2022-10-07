@@ -51,16 +51,55 @@ class Canva (QMainWindow ):
         if self.grafico ==NUM1:
 
             self.umb()'''
+    def button_lamda(self, ad):
 
+        if ad == "a1":
+
+            if self.entre_2 == 0:
+                self.entre_2 = 1
+                self.grafico_processador()
+
+            elif self.entre_2 == 1:
+
+                self.verificar_desativar_grafico()
+
+            elif self.entre_2 == 2:
+
+                self.verificar_desativar_grafico()
+
+                self.entre_2 = 1
+                self.grafico_processador()
+        
+        elif ad == "a2":
+
+            if self.entre_2 == 0:
+                self.entre_2 = 2
+                self.grafico_processador()
+
+            elif self.entre_2 == 1:
+
+                self.verificar_desativar_grafico()
+
+                self.entre_2 = 2
+                self.grafico_processador()
+
+            elif self.entre_2 == 2:
+
+                self.verificar_desativar_grafico()  
+        
+            
     def grafico_processador(self):
 
         if self.qtimer_lop == 0:
             
             self.qtimer_lop = 1
 
+            self.vericacao_org_grafico()
+
+
             self.qtimer_bateria1 = QTimer        ( self )
 
-            self.qtimer_bateria1.setInterval     ( 5000 )
+            self.qtimer_bateria1.setInterval     ( 10000 )
             self.qtimer_bateria1.start           ()
 
             #chamada de funçãO
@@ -84,20 +123,12 @@ class Canva (QMainWindow ):
 
     def single_ativar(self):
 
-        if self.if_var == JANELA1:
-            pass
-        else:
-
-            self.umb()
+        self.umb()
 
     def single_desativar(self):
-
-        if self.if_var == JANELA1:
-            pass
-        else:
                 
-            self.chart_delete()
-            self.single_ativar()
+        self.chart_delete()
+        self.single_ativar()
 
     def variaveis_trabalho(self):
 
@@ -105,6 +136,7 @@ class Canva (QMainWindow ):
         self.qtimer_lop = 0
 
         self.At_des= 0
+        self.entre_2 = 0
 
         
 

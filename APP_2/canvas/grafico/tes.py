@@ -3,6 +3,11 @@ from PyQt5 import Qt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 import matplotlib.pyplot as plt
 
+'''
+    CONFIGURACOES APP
+'''
+from configuracoesapp.string_letra import PROCESSADOR
+
 class JanelaGrafico (QMainWindow):
 
    
@@ -26,9 +31,10 @@ class JanelaGrafico (QMainWindow):
             
 
             self.ax.set(xlabel='tempo', ylabel='frequência',
-               title='PROCESSADOR')
+               title=PROCESSADOR)
             
-            self.mostrar_grafico_ax()
+            #self.mostrar_grafico_ax()
+            self.mostrar_grafico_if()
                        
             self.ax.grid()
 
