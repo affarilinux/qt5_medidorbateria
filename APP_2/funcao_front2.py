@@ -37,7 +37,7 @@ class Processo_front:
         ##estado
         self.estado_frame_false(self.if_var)
 
-    def whidget_ram(self):
+    def whidget_ram_fun(self):
 
         if self.if_var != JANELA2:
     
@@ -51,6 +51,8 @@ class Processo_front:
         self.whidget_frames_db_if()
 
         self.whidget_frames_if()
+        ##widget
+        self.whidget_ram()
 
         self.estado_frame_false(self.if_var)
             
@@ -156,22 +158,6 @@ class Processo_front:
                 
                 self.qtimer_loop_salvar()
                
-        
-    ##--------------------------------------------
-    ## botao grafico
-    def botao_grafico_processador(self):
-
-        if self.at_des_grafico == NUM0:
-            self.at_des_grafico = NUM1
-            if self.grafico == NUM0:
-                self.grafico_processador()
-            
-
-        elif self.at_des_grafico == NUM1:
-            self.at_des_grafico = NUM0
-            if self.grafico == NUM1:
-                self.chart_delete()
-                self.grafico = NUM0
     ##--------------------------------------------
     ##bateria
     def if_qcb_batval(self):

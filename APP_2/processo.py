@@ -17,13 +17,13 @@ class Processo:
         self.if_var = JANELA1
         self.val = false_lt
         self.salvar_label = INI_LABEL
-        self.grafico = NUM0
-        self.at_des_grafico = NUM0
-        self.loop_qtimer = NUM0
         self.whidget_dest = 0
         self.whidget_frameeframe = 0
         self.configuracoes_tb = None
         self.val_bat = false_lt
+
+        self.qtimer_lop = 0
+        self.At_des     = 0
         
     def widget_processador12(self,state):
     

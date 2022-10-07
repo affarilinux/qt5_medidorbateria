@@ -16,7 +16,7 @@ class DestWidget(QMainWindow):
     def geral_destroi(self,des):
 
         if des == JANELA1:
-            self.dest_janela_1()
+            
             self.destif_janela5()
 
             self.LABEL_INFO_AVISO_BAT.deleteLater()
@@ -26,14 +26,19 @@ class DestWidget(QMainWindow):
             self.spin_max.deleteLater()
             self.QCB_C_mm.setChecked( False )
             self.QCB_C_mm.deleteLater()
+
+            self.botao_grap_bat_car.deleteLater()
+            self.botao_grap_bat_des.deleteLater()
             
         elif des == JANELA2:
-            self.dest_janela_2()
+           
             self.destif_janela5()
+            self.botao_grap_ram.deleteLater()
         
         elif des == JANELA3:
             
             self.LABEL_INFO_AVISO_IMP.deleteLater()
+            self.botao_grap_tp.deleteLater()
             self.destif_janela5()
             
         elif des == JANELA4:
@@ -42,13 +47,12 @@ class DestWidget(QMainWindow):
             self.destif_janela5()    
 
         elif des == JANELA5:
-
-            self.chart_delete()
-
+            
+            self.verificar_desativar_grafico()
             self.botao_grap_p.deleteLater()
             
             self.destif_janela5()
-  
+            
         elif des == JANELA6:
 
             self.botao_resert.deleteLater()
@@ -63,16 +67,15 @@ class DestWidget(QMainWindow):
     ## -------------------------------------------
     ## funcoes
 
-    def dest_janela_1(self):
-        print(1111)
+    def verificar_desativar_grafico(self):
 
-    def dest_janela_2(self):
-        print(2222)
-        
+        if self.At_des == 1:
+                self.chart_delete()
+                self.variaveis_trabalho()
+
     def chart_delete(self):
         
-        if self.grafico ==NUM1:
-            self.chart.close()      
+        self.chart.close()      
 
     def destif_janela5(self):
 

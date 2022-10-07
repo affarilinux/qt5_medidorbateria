@@ -8,7 +8,7 @@ from configuracoesapp.numero import (
     NUM5,NUM10,NUM20,NUM40,NUM140,NUM180,NUM200
     )
 from configuracoesapp.letra import false_lt
-from configuracoesapp.string_letra import RAM_S,PROCESSADOR, TEMPERATURA_S,JANELA2,JANELA3,JANELA5,JANELA1
+from configuracoesapp.string_letra import RAM_S,PROCESSADOR, TEMPERATURA_S,JANELA2,JANELA3,JANELA5,JANELA1,BATERIA_S
 from configuracoesapp.numerostrig import NUMS1,NUMS2,NUMS3
 
 class GUIFront2(QMainWindow):
@@ -23,7 +23,7 @@ class GUIFront2(QMainWindow):
         LABEL2_JANERLA.resize(190,380)
         LABEL2_JANERLA.setStyleSheet('QLabel{background-color: #FFFF00;}')# YELLOW
 
-        self.botao2_janela= QPushButton('BATERIA',self)
+        self.botao2_janela= QPushButton(BATERIA_S,self)
         self.botao2_janela.move(NUM10,NUM20)#janela
         self.botao2_janela.resize(NUM180,NUM40)
         self.botao2_janela.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 18px}')#RED
@@ -33,7 +33,7 @@ class GUIFront2(QMainWindow):
         self.botao2_janela2.move(NUM10,80)#janela
         self.botao2_janela2.resize(NUM180,NUM40)
         self.botao2_janela2.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 18px}')#RED
-        self.botao2_janela2.clicked.connect(self.whidget_ram)
+        self.botao2_janela2.clicked.connect(self.whidget_ram_fun)
 
         self.botao2_janela3= QPushButton(TEMPERATURA_S,self)
         self.botao2_janela3.move(NUM10,NUM140)#janela
@@ -112,6 +112,29 @@ class GUIFront2(QMainWindow):
         self.QCB_C_mm.setChecked( False )
         self.QCB_C_mm.show()
 
+        self.botao_grap_bat_car= QPushButton('CARREGANDO',self)
+        self.botao_grap_bat_car.move(220,50)#janela
+        self.botao_grap_bat_car.resize(220,NUM40)
+        self.botao_grap_bat_car.setStyleSheet('QPushButton{background-color: #1E90FF; font: bold; font-size: 20px}')#DodgerBlue
+        self.botao_grap_bat_car.show()
+        #self.botao_grap_bat_car.clicked.connect(self.botao_grafico_processador)
+
+        self.botao_grap_bat_des= QPushButton('DESCARREGANDO',self)
+        self.botao_grap_bat_des.move(550,50)#janela
+        self.botao_grap_bat_des.resize(220,NUM40)
+        self.botao_grap_bat_des.setStyleSheet('QPushButton{background-color: #1E90FF; font: bold; font-size: 20px}')#DodgerBlue
+        self.botao_grap_bat_des.show()
+        #self.botao_grap_bat_des.clicked.connect(self.botao_grafico_processador)
+
+    ## frame 2
+    def whidget_ram(self):
+
+        self.botao_grap_ram= QPushButton('GRAFICO',self)
+        self.botao_grap_ram.move(350,50)#janela
+        self.botao_grap_ram.resize(200,NUM40)
+        self.botao_grap_ram.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 20px}')#RED
+        self.botao_grap_ram.show()
+        #self.botao_grap_tp.clicked.connect(self.botao_grafico_processador)
 
      ## frame 3
     def Whidget_TEMPERATURA(self):
@@ -122,6 +145,13 @@ class GUIFront2(QMainWindow):
         self.LABEL_INFO_AVISO_IMP.resize(420,20)
         self.LABEL_INFO_AVISO_IMP.setStyleSheet('QLabel{background-color: #00FF00; font: italic;font-size: 14px}')# 
         self.LABEL_INFO_AVISO_IMP.show()
+
+        self.botao_grap_tp= QPushButton('GRAFICO',self)
+        self.botao_grap_tp.move(350,50)#janela
+        self.botao_grap_tp.resize(200,NUM40)
+        self.botao_grap_tp.setStyleSheet('QPushButton{background-color: #008B8B; font: bold; font-size: 20px}')#DarkCyan
+        self.botao_grap_tp.show()
+        #self.botao_grap_tp.clicked.connect(self.botao_grafico_processador)
     ## frame 4
     def Whidget_cooler1(self):
 
@@ -138,9 +168,9 @@ class GUIFront2(QMainWindow):
         self.botao_grap_p= QPushButton('GRAFICO',self)
         self.botao_grap_p.move(350,50)#janela
         self.botao_grap_p.resize(200,NUM40)
-        self.botao_grap_p.setStyleSheet('QPushButton{background-color: #FF0000; font: bold; font-size: 20px}')#RED
+        self.botao_grap_p.setStyleSheet('QPushButton{background-color: #3CB371; font: bold; font-size: 20px}')#MediumSeaGreen
         self.botao_grap_p.show()
-        self.botao_grap_p.clicked.connect(self.botao_grafico_processador)
+        self.botao_grap_p.clicked.connect(self.grafico_processador)
 
 
     ##loop 
