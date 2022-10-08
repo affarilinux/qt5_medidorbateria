@@ -12,18 +12,25 @@ class Bancosqlite:
 
     def __init__(self):
         super().__init__()
-
+        ##----------------------------------------
         self.ativar_banco()
+
         self.criar_tabela()
-        self.sair_banco()
 
+        self.sair_banco()
+        ##----------------------------------------
         self.ativar_banco()
+
         self.organizacao_tabelas_inicializacao()
+
         self.commit_banco()
         self.sair_banco()
-
+        ##----------------------------------------
         self.ativar_banco()
+
         self.apagar_dados_tb()
+        self.apagar_dados_temp()
+
         self.commit_banco()
         self.sair_banco()
         
@@ -95,12 +102,30 @@ class Bancosqlite:
             """ CREATE TABLE if not exists PROCESSADOR(
             id_processo INTEGER PRIMARY KEY AUTOINCREMENT,
             numero_dia INT,
-            data_processador INT,
             horas_processador INT,
             porcentagem_processador FLOAT,
             FOREIGN KEY(numero_dia) REFERENCES SEGUNDOS(ID_SEGUNDOS),
-            FOREIGN KEY(data_processador) REFERENCES DATA_SISTEMA(ID_DATA),
             FOREIGN KEY(horas_processador) REFERENCES HORAS(ID_HORAS)
+            )""")
+
+        self.cursorsq.execute(
+            """ CREATE TABLE if not exists  TEMPERATURADB(
+            ID_temperatura INTEGER PRIMARY KEY AUTOINCREMENT,
+            numero_dia_temp INT,
+            horas_processador_temp INT,
+            porcentagem_processador_temp FLOAT,
+            FOREIGN KEY(numero_dia_temp) REFERENCES SEGUNDOS(ID_SEGUNDOS),
+            FOREIGN KEY(horas_processador_temp) REFERENCES HORAS(ID_HORAS)
+            )""")
+
+        self.cursorsq.execute(
+            """ CREATE TABLE if not exists  RAMDB(
+            ID_temperatura_ram INTEGER PRIMARY KEY AUTOINCREMENT,
+            numero_dia_temp_ram INT,
+            horas_processador_temp_ram INT,
+            porcentagem_processador_temp_ram FLOAT,
+            FOREIGN KEY(numero_dia_temp_ram) REFERENCES SEGUNDOS(ID_SEGUNDOS),
+            FOREIGN KEY(horas_processador_temp_ram) REFERENCES HORAS(ID_HORAS)
             )""")
     ##
     
@@ -186,8 +211,10 @@ class Bancosqlite:
                        
     ## -------------------------------------------
     ## apagar dados
+    ## janela5
     def apagar_dados_tb(self):
 
+        ## inicio processo None()-try
         try:
             self.vb = None
             self.drink = None
@@ -226,7 +253,7 @@ class Bancosqlite:
                     
 
             def calculo_operacao(self):
-                FGH = 0
+               
                 
                 while self.procv >= self.drink:
 
@@ -236,15 +263,8 @@ class Bancosqlite:
                     for dest1 in rec_dest1:
 
                         if self.procv < self.vb and self.procv >= self.drink:
-                            FGH = FGH+1
-                            print(FGH)
-                            print(self.sdfg)
                         
-                            
-                            
                             self.cursorsq.execute("DELETE from PROCESSADOR where numero_dia = ? ", (self.sdfg,))
-
-                            #print(self.procv)
 
                         self.sdfg = self.sdfg - 1
                         self.procv = dest1
@@ -254,168 +274,135 @@ class Bancosqlite:
         except TypeError:
 
             pass
+    ## janela3
+    def apagar_dados_temp(self):
+    
+        ## inicio processo None()-try
+        try:
+            self.vb_t3 = None
+            self.drink_t3 = None
+            self.sdfg_t3 = None
+            self.procv_t3 = None
 
-                   
+            self.cursorsq.execute("SELECT MAX(numero_dia) FROM PROCESSADOR")
+            recoR_IDs_t3 = self.cursorsq.fetchone()
+
+            for sdf_t3 in recoR_IDs_t3:
+
+                self.sdfg_t3 = sdf_t3
+                
+                self.cursorsq.execute("SELECT segundos FROM SEGUNDOS where ID_SEGUNDOS = ?", (sdf_t3,))
+                recoseg_t3 = self.cursorsq.fetchone()
+
+                for segu_t3 in recoseg_t3:
+
+                
+                    self.procv_t3 = segu_t3
+
+                    self.vb_t3 = segu_t3 - 60*60*24
 
 
+            self.cursorsq.execute("SELECT MIN(numero_dia) FROM PROCESSADOR")
+            recoR_I_tt3 = self.cursorsq.fetchone()
 
-            '''if 
+            for sdf_tt3 in recoR_I_tt3:
 
-                cal  = f - 1
+                self.cursorsq.execute("SELECT segundos FROM SEGUNDOS where ID_SEGUNDOS = ?", (sdf_tt3,))
+                recoseg_tt23 = self.cursorsq.fetchone()
 
-                loop(self,cal)'''
+                for segu_tt23 in recoseg_tt23:
 
-            '''elif g >= self.drink:
+                    self.drink_t3 = segu_tt23
+                    
 
-                clac = f -1
-
-                apagar_linha(self,clac)'''
-
-
-
-
-        
-        
-                #apagar_linha(self,str(s_list),str(segu))
-
-        
-
-
+            def calculo_operacao_3(self):
                
-        ''' ss = str(s_list)
-
-                #print(ss[0])
-
-                gh = ss[0:9]
-                print(gh)'''
-
-        '''self.cursorsq.execute("SELECT ID_SEGUNDOS FROM SEGUNDOS where  segundos LIKE '"+gh+"%'")
-                recosegs = self.cursorsq.fetchall()
-                #print(recosegs)
-                #print(len(recosegs))
-
-
-                for fg in recosegs:
-                    print(fg)'''
-
-
-
-
-
-        '''numbers = []
-
-        self.cursorsq.execute("SELECT numero_dia FROM PROCESSADOR")
-        recoR_IDs = self.cursorsq.fetchall()
-
-        for r_id3 in recoR_IDs:
-            numbers.append(r_id3)
-
-        max_value = None
-        max_idx = None
-
-        for idx, num in enumerate(numbers):
-            if (max_value is None or num > max_value):
-                max_value = num
-                max_idx = idx
-
-        self.if_id_cham = 0
-        self.var_status = None
-        self.var_lop = None
-
-        def deletar_linhadb(self,vl_mun,bo):
-            
-            
-            self.cursorsq.execute("DELETE from PROCESSADOR where numero_dia = ? ",(vl_mun >= bo,))
-
-            wi = vl_mun
-           
-            df = vl_mun
-            
-            while wi >=0:
-                gh= numbers[]
-                for del_list in gh:
                 
-                 
-                    wi = del_list-1
-                    df = del_list -1
+                while self.procv_t3 >= self.drink_t3:
 
-                    print(del_list)'''
+                    self.cursorsq.execute("SELECT  segundos from  SEGUNDOS WHERE ID_SEGUNDOS = ?",(self.sdfg_t3,))
+                    rec_dest1_tt33 = self.cursorsq.fetchone()
 
+                    for dest1_tt33 in rec_dest1_tt33:
 
-
-                
-
-                    #self.cursorsq.execute("SELECT  id_processo from  PROCESSADOR WHERE numero_dia = ?",(del_list,))
-                #del_iddb = self.cursorsq.fetchone()
-
-                #for apagar in del_iddb:
-                   
-
-            #funcao_de_controle_status_del(self,vl_mun)
-
-        '''def funcao_de_controle_status_del(self,idx):
-            print(idx)
-
-            for dell in range(idx,-1,-1):
-                pri = numbers[dell]
-                for diel in pri:
-                    #print(diel)
-                    deletar_linhadb(self,diel)
-
-                    #deletar_linhadb(self,)
-
-        def ler_banco_variaveis(self,min):
-
-            ler_lista = numbers[min]
-            for mx_list in ler_lista:
-            
-                self.cursorsq.execute("SELECT  segundos from  SEGUNDOS WHERE ID_SEGUNDOS = ?",(mx_list,))
-                rec_dest1 = self.cursorsq.fetchone()
-
-                for dest1 in rec_dest1:
-
-                    if self.if_id_cham == 0:
-                        self.var_status = dest1
-                        self.if_id_cham = 1
-                    #print(dest1)
-
-                    funcao_controle_estatus(self,min,dest1)
-
-
-        def funcao_controle_estatus(self,procs,segu):
-
-            v_processo = self.var_status - 60*60*24
-
-            if segu >= v_processo:
-
-                pc_tb = procs-1
-                ler_banco_variaveis(self,pc_tb)
-
-                else:
-                
-                pti = numbers[0]
-                for biu in pti:
-                    print(biu)
-
-                    # deletar_linhadb(self,v_processo,biu)
-
-            for dell in range(pc_tb,-1,-1):
-                    pri = numbers[dell]
-                    for diel in pri:
-                        print(diel)
-                        #deletar_linhadb(self,diel)
-                #self.var_lop = procs
-                #funcao_de_controle_status_del(self,procs)
-                #print(procs)
-                #deletar_linhadb(self,procs)'''
-
-            
-
-
-        #ler_banco_variaveis(self,max_idx)
-
+                        if self.procv_t3 < self.vb_t3 and self.procv_t3 >= self.drink_t3:
                         
-        
+                            self.cursorsq.execute("DELETE from PROCESSADOR where numero_dia = ? ", (self.sdfg_t3,))
+
+                        self.sdfg_t3 = self.sdfg_t3 - 1
+                        self.procv_t3 = dest1_tt33
+
+            calculo_operacao_3(self)
+
+        except TypeError:
+
+            pass
+
+    ## janela3
+    def apagar_dados_ram(self):
+    
+        ## inicio processo None()-try
+        try:
+            self.vb_t2 = None
+            self.drink_t2 = None
+            self.sdfg_t2 = None
+            self.procv_t2 = None
+
+            self.cursorsq.execute("SELECT MAX(numero_dia) FROM PROCESSADOR")
+            leia_t2 = self.cursorsq.fetchone()
+
+            for rlop_t2 in leia_t2:
+
+                self.sdfg_t2 = rlop_t2
+                
+                self.cursorsq.execute("SELECT segundos FROM SEGUNDOS where ID_SEGUNDOS = ?", (rlop_t2,))
+                leiat_t2 = self.cursorsq.fetchone()
+
+                for segu_t3 in leiat_t2:
+
+                
+                    self.procv_t2 = segu_t3
+
+                    self.vb_t2 = segu_t3 - 60*60*24
+
+
+            self.cursorsq.execute("SELECT MIN(numero_dia) FROM PROCESSADOR")
+            recoR_I_tt3 = self.cursorsq.fetchone()
+
+            for sdf_tt3 in recoR_I_tt3:
+
+                self.cursorsq.execute("SELECT segundos FROM SEGUNDOS where ID_SEGUNDOS = ?", (sdf_tt3,))
+                recoseg_tt23 = self.cursorsq.fetchone()
+
+                for segu_tt23 in recoseg_tt23:
+
+                    self.drink_t2 = segu_tt23
+                    
+
+            def calculo_operacao_3(self):
+               
+                
+                while self.procv_t2 >= self.drink_t2:
+
+                    self.cursorsq.execute("SELECT  segundos from  SEGUNDOS WHERE ID_SEGUNDOS = ?",(self.sdfg_t2,))
+                    rec_dest1_tt33 = self.cursorsq.fetchone()
+
+                    for dest1_tt33 in rec_dest1_tt33:
+
+                        if self.procv_t2 < self.vb_t2 and self.procv_t2 >= self.drink_t2:
+                        
+                            self.cursorsq.execute("DELETE from PROCESSADOR where numero_dia = ? ", (self.sdfg_t2,))
+
+                        self.sdfg_t2 = self.sdfg_t2 - 1
+                        self.procv_t2 = dest1_tt33
+
+            calculo_operacao_3(self)
+
+        except TypeError:
+
+            pass
+
+
     ##--------------------------------------------
     # close da janela
     def atualizar_processo_sistema(self):
