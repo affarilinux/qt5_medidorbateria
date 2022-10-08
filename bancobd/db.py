@@ -30,6 +30,7 @@ class Bancosqlite:
 
         self.apagar_dados_tb()
         self.apagar_dados_temp()
+        self.apagar_dados_ram()
 
         self.commit_banco()
         self.sair_banco()
@@ -126,6 +127,16 @@ class Bancosqlite:
             porcentagem_processador_temp_ram FLOAT,
             FOREIGN KEY(numero_dia_temp_ram) REFERENCES SEGUNDOS(ID_SEGUNDOS),
             FOREIGN KEY(horas_processador_temp_ram) REFERENCES HORAS(ID_HORAS)
+            )""")
+
+        self.cursorsq.execute(
+            """ CREATE TABLE if not exists  BATERA_GRAFO(
+            ID_temperatura_BAT INTEGER PRIMARY KEY AUTOINCREMENT,
+            numero_dia_temp_BAT INT,
+            horas_processador_temp_BAT INT,
+            porcentagem_processador_temp_BAT FLOAT,
+            FOREIGN KEY(numero_dia_temp_BAT) REFERENCES SEGUNDOS(ID_SEGUNDOS),
+            FOREIGN KEY(horas_processador_temp_BAT) REFERENCES HORAS(ID_HORAS)
             )""")
     ##
     
@@ -338,7 +349,7 @@ class Bancosqlite:
 
             pass
 
-    ## janela3
+    ## janela2
     def apagar_dados_ram(self):
     
         ## inicio processo None()-try
@@ -358,51 +369,51 @@ class Bancosqlite:
                 self.cursorsq.execute("SELECT segundos FROM SEGUNDOS where ID_SEGUNDOS = ?", (rlop_t2,))
                 leiat_t2 = self.cursorsq.fetchone()
 
-                for segu_t3 in leiat_t2:
+                for Rlop_segur_t2 in leiat_t2:
 
                 
-                    self.procv_t2 = segu_t3
+                    self.procv_t2 = Rlop_segur_t2
 
-                    self.vb_t2 = segu_t3 - 60*60*24
+                    self.vb_t2 = Rlop_segur_t2 - 60*60*24
 
 
             self.cursorsq.execute("SELECT MIN(numero_dia) FROM PROCESSADOR")
-            recoR_I_tt3 = self.cursorsq.fetchone()
+            leiamim_dia_t2 = self.cursorsq.fetchone()
 
-            for sdf_tt3 in recoR_I_tt3:
+            for rlop_mim_dia_t2 in leiamim_dia_t2:
 
-                self.cursorsq.execute("SELECT segundos FROM SEGUNDOS where ID_SEGUNDOS = ?", (sdf_tt3,))
-                recoseg_tt23 = self.cursorsq.fetchone()
+                self.cursorsq.execute("SELECT segundos FROM SEGUNDOS where ID_SEGUNDOS = ?", (rlop_mim_dia_t2,))
+                leia_mdia_tt23 = self.cursorsq.fetchone()
 
-                for segu_tt23 in recoseg_tt23:
+                for for_dia_mim_t2 in leia_mdia_tt23:
 
-                    self.drink_t2 = segu_tt23
+                    self.drink_t2 = for_dia_mim_t2
                     
 
-            def calculo_operacao_3(self):
+            def calculo_operacao_2(self):
                
                 
                 while self.procv_t2 >= self.drink_t2:
 
                     self.cursorsq.execute("SELECT  segundos from  SEGUNDOS WHERE ID_SEGUNDOS = ?",(self.sdfg_t2,))
-                    rec_dest1_tt33 = self.cursorsq.fetchone()
+                    leia_leia_t2 = self.cursorsq.fetchone()
 
-                    for dest1_tt33 in rec_dest1_tt33:
+                    for fim_proc_dest in leia_leia_t2:
 
                         if self.procv_t2 < self.vb_t2 and self.procv_t2 >= self.drink_t2:
                         
                             self.cursorsq.execute("DELETE from PROCESSADOR where numero_dia = ? ", (self.sdfg_t2,))
 
                         self.sdfg_t2 = self.sdfg_t2 - 1
-                        self.procv_t2 = dest1_tt33
+                        self.procv_t2 = fim_proc_dest
 
-            calculo_operacao_3(self)
+            calculo_operacao_2(self)
 
         except TypeError:
 
             pass
-
-
+    
+    
     ##--------------------------------------------
     # close da janela
     def atualizar_processo_sistema(self):
