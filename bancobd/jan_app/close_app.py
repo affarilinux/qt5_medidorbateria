@@ -12,7 +12,9 @@ class BancoCloseApp(QMainWindow):
     def sair_app(self):
 
         self.ativar_banco1()
+
         self.analisar_banco()
+        
         self.sair_banco1()
 
     def analisar_banco(self):
@@ -32,16 +34,21 @@ class BancoCloseApp(QMainWindow):
             self.fechar_janela_secundaria()
 
         elif self.if_var == JANELA2:
+
              self.fechar_janela_secundaria()
+             self.chart_delete()
              
         elif self.if_var == JANELA3:
+
             self.fechar_janela_secundaria()
+            self.chart_delete()
 
         elif self.if_var == JANELA4:
 
             self.fechar_janela_secundaria()
         
         elif self.if_var == JANELA5:
+
             self.fechar_janela_secundaria()
             self.chart_delete()
 

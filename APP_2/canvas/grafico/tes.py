@@ -29,9 +29,6 @@ class JanelaGrafico (QMainWindow):
     def ucv(self):
             self.ax = self.canvas.figure.subplots()
             
-
-            self.ax.set(xlabel='tempo', ylabel='frequência',
-               title=PROCESSADOR)
             
             #self.mostrar_grafico_ax()
             self.mostrar_grafico_if()
